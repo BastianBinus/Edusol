@@ -37,13 +37,14 @@
   <link rel="preload" href="/assets/fonts/poppins-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/poppins-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/init.js"></script>
   {%- if preloadImage %}
   <link rel="preload" href="{{ preloadImage }}" as="image" type="image/svg+xml" fetchpriority="high">
   {%- endif %}
 
   {% include "partials/jsonld.njk" %}
 </head>
-<body>
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
   {% include "partials/header.njk" %}

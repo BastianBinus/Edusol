@@ -7,14 +7,20 @@
     </a>
     <button class="nav-toggle" type="button" data-toggle="nav" aria-controls="site-nav" aria-expanded="false">
       <span class="nav-toggle__icon" aria-hidden="true"></span>
-      Menü
+      <span data-nav-label>Menü</span>
     </button>
+    <div class="nav-scrim" data-nav-scrim hidden></div>
     <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation">
+      <div class="site-nav__sheet-head">
+        <span class="site-nav__handle" aria-hidden="true"></span>
+        <button class="site-nav__close" type="button" data-nav-close>Schliessen</button>
+      </div>
       <ul class="site-nav__list">
         <li class="site-nav__item--menu" data-menu>
           <button class="site-nav__link{% if fieldActive %} is-active{% endif %}" type="button" data-toggle="menu" aria-controls="menu-felder" aria-expanded="false">
             Wirkungsfelder <span class="site-nav__caret" aria-hidden="true">▼</span>
           </button>
+          <p class="site-nav__label">Wirkungsfelder</p>
           <div class="mega" id="menu-felder" hidden>
             <ul class="mega__grid">
               {%- for f in fields %}
@@ -26,6 +32,7 @@
                     <span class="mega__title accent-text">{{ f.menuTitle }}</span>
                     <span class="mega__teaser">{{ f.lead }}</span>
                   </span>
+                  <span class="mega__chev" aria-hidden="true">›</span>
                 </a>
               </li>
               {%- endfor %}
@@ -35,6 +42,17 @@
         <li><a class="site-nav__link" href="/einblicke.html"{% if page.url == "/einblicke.html" %} aria-current="page"{% endif %}>Einblicke</a></li>
         <li><a class="site-nav__link" href="/ueber-uns.html"{% if page.url == "/ueber-uns.html" %} aria-current="page"{% endif %}>Wir sind EDUSOL</a></li>
         <li class="site-nav__cta"><a class="btn btn--primary" href="/kontakt.html"{% if page.url == "/kontakt.html" %} aria-current="page"{% endif %}>Gemeinsam loslegen</a></li>
+        <li class="site-nav__mobile">
+          <a class="site-nav__akut" href="/akut.html"{% if page.url == "/akut.html" %} aria-current="page"{% endif %}>
+            <img src="/assets/img/eulen/krisenmanagement.svg" width="36" height="36" alt="">
+            <span><strong>Akut-Hilfe</strong><span>Telefonisch {{ site.akutHoursShort }}</span></span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li class="site-nav__mobile site-nav__legal">
+          <a href="/datenschutz.html">Datenschutz</a>
+          <a href="/impressum.html">Impressum</a>
+        </li>
       </ul>
     </nav>
   </div>

@@ -12,7 +12,7 @@ hideCta: true
     <div class="stack stack-lg">
       <h1 class="h-display">Diese Seite haben wir nicht gefunden.</h1>
       <p class="lead">Vielleicht wurde sie verschoben, oder der Link ist nicht mehr aktuell. Kein Problem – von hier aus findet ihr schnell weiter.</p>
-      <div class="cluster">
+      <div class="cluster cluster--stack">
         <a class="btn btn--primary btn--lg" href="/">Zur Startseite</a>
         <a class="btn btn--outline btn--lg" href="/kontakt.html">Uns direkt fragen</a>
       </div>
@@ -34,7 +34,7 @@ hideCta: true
     <ul class="other-fields nf-fields">
       {%- for f in fields %}
       <li class="theme-{{ f.slug }}">
-        <a href="/{{ f.slug }}.html"><img src="/assets/img/eulen/{{ f.slug }}.svg" width="40" height="36" alt=""><span class="nf-fields__title">{{ f.cardTitle }}</span></a>
+        <a href="/{{ f.slug }}.html"><img src="/assets/img/eulen/{{ f.slug }}.svg" width="40" height="36" alt=""><span class="nf-fields__title">{{ f.cardTitle }}</span><span class="nf-fields__chev" aria-hidden="true">›</span></a>
       </li>
       {%- endfor %}
     </ul>

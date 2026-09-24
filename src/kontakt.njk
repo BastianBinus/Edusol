@@ -6,8 +6,10 @@ description: Nehmt Kontakt mit EDUSOL auf – wir beraten euch zu Coaching, Supe
 permalink: /kontakt.html
 pageScript: /assets/js/contact-form.js
 hideCta: true
+hideAkutFab: true
+bodyClass: has-bottom-bar
 ---
-<section class="hero hero--page">
+<section class="hero hero--page kontakt-hero">
   <div class="container hero__inner stack stack-md">
     <p class="eyebrow">Wir freuen uns, von euch zu hören</p>
     <h1 class="h-page">Gemeinsam loslegen</h1>
@@ -27,6 +29,14 @@ hideCta: true
         <p><a class="link-arrow" href="/">← Zur Startseite</a></p>
       </div>
 
+      <div class="wizard-progress" data-wizard-progress>
+        <div class="wizard-progress__row">
+          <p class="eyebrow" aria-hidden="true">Gemeinsam loslegen</p>
+          <p class="wizard-progress__count" data-wizard-count aria-live="polite">Schritt 1 von 3</p>
+        </div>
+        <div class="wizard-progress__bar" aria-hidden="true"><span data-wizard-bar></span></div>
+      </div>
+
       <form class="form" id="contact-form" action="{{ '/api/contact' if site.contactBackend == 'vercel' else site.formspreeAction }}" method="POST" data-fallback-email="{{ site.email }}">
         <input type="hidden" name="_subject" value="Neue Anfrage über edusol.ch">
         <div class="hp-field" aria-hidden="true">
@@ -34,8 +44,9 @@ hideCta: true
           <input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off">
         </div>
 
-        <fieldset class="form-step">
-          <legend class="form-step__title">1. Worum geht es? <span class="hint">(optional)</span></legend>
+        <fieldset class="form-step" data-step="1">
+          <legend class="form-step__title"><span class="form-step__num">1. </span>Worum geht es? <span class="hint">(optional)</span></legend>
+          <p class="hint wizard-only">Optional – hilft uns, die richtige Person zu finden.</p>
           <div class="chips">
             {%- for f in fields %}
             <label class="chip theme-{{ f.slug }}">
@@ -52,10 +63,14 @@ hideCta: true
             <span><strong>Ist es akut?</strong> Dann ruft uns direkt an – {{ site.akutHoursShort }}.</span>
             <a href="/akut.html">Zur Akut-Hilfe →</a>
           </p>
+          <p class="wizard-mail wizard-only">
+            <span>Lieber direkt per E-Mail?</span>
+            <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+          </p>
         </fieldset>
 
-        <fieldset class="form-step">
-          <legend class="form-step__title">2. Wer seid ihr?</legend>
+        <fieldset class="form-step" data-step="2">
+          <legend class="form-step__title"><span class="form-step__num">2. </span>Wer seid ihr?</legend>
           <div class="field-row">
             <div class="field">
               <label for="name">Vor- und Nachname</label>
@@ -83,9 +98,10 @@ hideCta: true
           </div>
         </fieldset>
 
-        <div class="form-step">
+        <div class="form-step" data-step="3">
           <div class="field">
-            <label class="form-step__title" for="nachricht">3. Eure Nachricht</label>
+            <label class="form-step__title" for="nachricht"><span class="form-step__num">3. </span>Eure Nachricht</label>
+            <p class="wizard-topic wizard-only" data-wizard-topic hidden></p>
             <p class="hint" id="nachricht-hint">Bitte keine Namen von Schülerinnen und Schülern oder Gesundheitsangaben – solche Details besprechen wir lieber persönlich.</p>
             <textarea class="input" id="nachricht" name="nachricht" rows="5" required aria-describedby="nachricht-hint nachricht-error"></textarea>
             <p class="field-error" id="nachricht-error" hidden></p>
@@ -105,10 +121,15 @@ hideCta: true
           <button class="btn btn--primary btn--lg" type="submit">Anfrage senden</button>
           <span class="hint">Unverbindlich · Antwort innert 48 Stunden</span>
         </div>
+
+        <div class="wizard-nav" data-wizard-nav>
+          <button class="btn btn--outline" type="button" data-wizard-back>Zurück</button>
+          <button class="btn btn--primary" type="button" data-wizard-next>Überspringen</button>
+        </div>
       </form>
     </div>
 
-    <aside class="contact-layout__aside" aria-label="Weitere Kontaktwege">
+    <aside class="contact-layout__aside kontakt-aside" aria-label="Weitere Kontaktwege">
       <div class="panel panel--soft">
         <h2>Lieber direkt?</h2>
         <p class="stack">

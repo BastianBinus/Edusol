@@ -8,8 +8,9 @@
     fullTitle: (data) => data.field.seoTitle,
     description: (data) => data.field.description,
     ctaTopic: (data) => data.field.slug,
+    bodyClass: () => "has-bottom-bar",
     breadcrumb: (data) => [
-      { name: "Wirkungsfelder", url: "/#wirkungsfelder" },
+      { name: "Wirkungsfelder", url: "/wirkungsfelder.html" },
       { name: data.field.menuTitle, url: `/${data.field.slug}.html` },
     ],
   },
@@ -21,7 +22,7 @@
       <nav class="breadcrumb" aria-label="Brotkrümelpfad">
         <ol>
           <li><a href="/">Startseite</a></li>
-          <li><a href="/#wirkungsfelder">Wirkungsfelder</a></li>
+          <li class="breadcrumb__back"><a href="/wirkungsfelder.html"><span class="breadcrumb__chev" aria-hidden="true">‹ </span><span class="breadcrumb__all">Alle </span>Wirkungsfelder</a></li>
           <li><span class="accent-text" aria-current="page">{{ field.menuTitle }}</span></li>
         </ol>
       </nav>
@@ -31,7 +32,7 @@
             <img class="field-hero__wordmark" src="/assets/img/fachgebiete/{{ field.slug }}.svg" width="{{ (field.heroWidth * 64 / 160) | round }}" height="64" alt="{{ field.title }}" fetchpriority="high">
           </h1>
           <p class="field-hero__teaser">{{ field.lead }}</p>
-          <div class="cluster">
+          <div class="cluster bottom-bar">
             <a class="btn btn--primary" href="/kontakt.html?thema={{ field.slug }}">Angebot anfragen</a>
             {%- if field.slug == "krisenmanagement" %}
             <a class="btn btn--crisis" href="/akut.html">Akut-Hilfe</a>
@@ -60,7 +61,8 @@
     <div class="container grid-2">
       <div class="stack stack-md">
         <h2 class="h-sub">{{ field.heading }}</h2>
-        <p class="prose">{{ field.body }}</p>
+        <p class="prose clamp" id="text-{{ field.slug }}">{{ field.body }}</p>
+        <button class="link-button read-more" type="button" data-clamp-toggle aria-controls="text-{{ field.slug }}" aria-expanded="false">Weiterlesen</button>
       </div>
       <div class="stack stack-md">
         <h2 class="h-sub">So starten wir</h2>
@@ -83,7 +85,7 @@
 <section class="section section--soft" aria-labelledby="weitere-title">
   <div class="container stack stack-md">
     <h2 class="h-small" id="weitere-title">Weitere Wirkungsfelder</h2>
-    <ul class="other-fields">
+    <ul class="other-fields scroller">
       {%- for f in fields %}{% if f.slug != field.slug %}
       <li class="theme-{{ f.slug }}">
         <a href="/{{ f.slug }}.html"><img src="/assets/img/eulen/{{ f.slug }}.svg" width="40" height="36" alt="" loading="lazy">{{ f.menuTitle }}</a>

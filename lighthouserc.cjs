@@ -22,8 +22,9 @@ module.exports = {
         "largest-contentful-paint": ["error", { maxNumericValue: 2500 }],
         "cumulative-layout-shift": ["error", { maxNumericValue: 0.1 }],
         "total-blocking-time": ["error", { maxNumericValue: 200 }],
-        "resource-summary:script:size": ["error", { maxNumericValue: 20000 }],
-        "resource-summary:stylesheet:size": ["error", { maxNumericValue: 40000 }],
+        "resource-summary:script:size": ["error", { maxNumericValue: 10000 }],
+        // Übertragungsgrössen (gzip, wie Vercel ausliefert – siehe scripts/serve.mjs)
+        "resource-summary:stylesheet:size": ["error", { maxNumericValue: 15000 }],
         "resource-summary:total:size": ["error", { maxNumericValue: 400000 }],
       },
     },

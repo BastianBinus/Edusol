@@ -113,6 +113,29 @@ if (backend === "vercel") {
 
 }
 
+// Mobil: Versand über den Assistenten (Weiter / Anfrage senden in der Aktionsleiste)
+{
+  const page = await browser.newPage({ viewport: { width: 375, height: 800 } });
+  await page.route("https://formspree.io/**", (route) =>
+    route.fulfill({ status: 200, contentType: "application/json", body: "{}" }),
+  );
+  const before = sentMails.length;
+  await page.goto(`${base}/kontakt.html?thema=npo`);
+  const next = page.locator("[data-wizard-next]");
+  expect((await next.textContent()).trim() === "Weiter", "Mobil: mit Vorauswahl nicht «Weiter»");
+  await next.click();
+  await page.fill("#name", "Mobil Muster");
+  await page.fill("#email", "mobil@schule.ch");
+  await next.click();
+  await next.click();
+  expect((await page.getAttribute("#nachricht", "aria-invalid")) === "true", "Mobil: leere Nachricht nicht gemeldet");
+  await page.fill("#nachricht", "Test über den Assistenten");
+  await Promise.all([page.waitForSelector("#form-success", { state: "visible" }), next.click()]);
+  expect(await page.isHidden("[data-wizard-progress]"), "Mobil: Fortschritt nach Erfolg noch sichtbar");
+  if (backend === "vercel") expect(sentMails.length === before + 1, "Mobil: Mail nicht gesendet");
+  await page.close();
+}
+
 await browser.close();
 server.close();
 
@@ -120,4 +143,4 @@ if (failures.length) {
   console.error(failures.map((f) => `✖ ${f}`).join("\n"));
   process.exit(1);
 }
-console.log(`Formular-E2E ok (${backend}): Validierung, Erfolg, Fehler und ${backend === "vercel" ? "Versand ohne JavaScript" : "Fallback"}.`);
+console.log(`Formular-E2E ok (${backend}): Validierung, Erfolg (auch mobil), Fehler und ${backend === "vercel" ? "Versand ohne JavaScript" : "Fallback"}.`);

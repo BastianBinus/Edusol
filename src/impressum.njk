@@ -4,9 +4,10 @@ title: Impressum
 fullTitle: Impressum und Anbieterangaben – EDUSOL
 description: Impressum von EDUSOL – Angaben zum Verein als Anbieter dieser Website, Kontaktadresse und E-Mail nach Art. 3 Abs. 1 lit. s UWG, Haftung und Urheberrecht.
 hideCta: true
+pageScript: /assets/js/legal.js
 permalink: /impressum.html
 ---
-<section class="hero hero--page">
+<section class="hero hero--page hero--legal">
   <div class="container container--narrow hero__inner stack stack-md">
     <h1 class="h-page">Impressum</h1>
     <p class="lead">Angaben zum Anbieter dieser Website.</p>
@@ -14,40 +15,60 @@ permalink: /impressum.html
 </section>
 
 <section class="section section--white">
-  <div class="container container--narrow legal">
+  <div class="container container--narrow legal" data-legal>
     {% include "partials/placeholder-note.njk" %}
 
-    <h2>Anbieter und verantwortlich für den Inhalt</h2>
-    {% include "partials/owner-address.njk" %}
-    <p>Vertretungsberechtigt: {{ site.owner.representatives }}</p>
-    {%- if site.owner.uid %}
-    <p>Unternehmens-Identifikationsnummer (UID): {{ site.owner.uid }}</p>
-    {%- endif %}
+    <section class="legal-sec" aria-labelledby="anbieter" data-legal-sec>
+      <h2 id="anbieter">Anbieter und verantwortlich für den Inhalt</h2>
+      <div class="legal-sec__body" id="anbieter-text">
+      {% include "partials/owner-address.njk" %}
+      <p>Vertretungsberechtigt: {{ site.owner.representatives }}</p>
+      {%- if site.owner.uid %}
+      <p>Unternehmens-Identifikationsnummer (UID): {{ site.owner.uid }}</p>
+      {%- endif %}
 
-    <h2>Haftung für Inhalte</h2>
-    <p>
-      Wir erstellen die Inhalte dieser Website mit grösster Sorgfalt. Für die Richtigkeit, Vollständigkeit und Aktualität
-      übernehmen wir jedoch keine Gewähr. Haftungsansprüche wegen Schäden materieller oder immaterieller Art, die aus dem
-      Zugriff auf, der Nutzung oder Nichtnutzung der veröffentlichten Informationen entstehen, sind ausgeschlossen, soweit
-      dies gesetzlich zulässig ist.
-    </p>
+      </div>
+    </section>
+    <section class="legal-sec" aria-labelledby="haftung-inhalte" data-legal-sec>
+      <h2 id="haftung-inhalte">Haftung für Inhalte</h2>
+      <div class="legal-sec__body" id="haftung-inhalte-text">
+      <p>
+        Wir erstellen die Inhalte dieser Website mit grösster Sorgfalt. Für die Richtigkeit, Vollständigkeit und Aktualität
+        übernehmen wir jedoch keine Gewähr. Haftungsansprüche wegen Schäden materieller oder immaterieller Art, die aus dem
+        Zugriff auf, der Nutzung oder Nichtnutzung der veröffentlichten Informationen entstehen, sind ausgeschlossen, soweit
+        dies gesetzlich zulässig ist.
+      </p>
 
-    <h2>Haftung für Links</h2>
-    <p>
-      Diese Website enthält Links zu Websites Dritter (z. B. LinkedIn). Auf deren Inhalte haben wir keinen Einfluss;
-      verantwortlich ist allein der jeweilige Anbieter. Werden uns rechtswidrige Inhalte bekannt, entfernen wir den
-      betreffenden Link umgehend.
-    </p>
+      </div>
+    </section>
+    <section class="legal-sec" aria-labelledby="haftung-links" data-legal-sec>
+      <h2 id="haftung-links">Haftung für Links</h2>
+      <div class="legal-sec__body" id="haftung-links-text">
+      <p>
+        Diese Website enthält Links zu Websites Dritter (z. B. LinkedIn). Auf deren Inhalte haben wir keinen Einfluss;
+        verantwortlich ist allein der jeweilige Anbieter. Werden uns rechtswidrige Inhalte bekannt, entfernen wir den
+        betreffenden Link umgehend.
+      </p>
 
-    <h2>Urheberrechte</h2>
-    <p>
-      Texte, Logos, Illustrationen und alle weiteren Inhalte dieser Website gehören EDUSOL oder den ausdrücklich genannten
-      Rechteinhabern. Für die Vervielfältigung oder Verwendung ist die vorgängige schriftliche Zustimmung erforderlich.
-    </p>
+      </div>
+    </section>
+    <section class="legal-sec" aria-labelledby="urheberrecht" data-legal-sec>
+      <h2 id="urheberrecht">Urheberrechte</h2>
+      <div class="legal-sec__body" id="urheberrecht-text">
+      <p>
+        Texte, Logos, Illustrationen und alle weiteren Inhalte dieser Website gehören EDUSOL oder den ausdrücklich genannten
+        Rechteinhabern. Für die Vervielfältigung oder Verwendung ist die vorgängige schriftliche Zustimmung erforderlich.
+      </p>
 
-    <h2>Datenschutz</h2>
-    <p>Informationen zur Bearbeitung von Personendaten findet ihr in der <a href="/datenschutz.html">Datenschutzerklärung</a>.</p>
+      </div>
+    </section>
+    <section class="legal-sec" aria-labelledby="datenschutz" data-legal-sec>
+      <h2 id="datenschutz">Datenschutz</h2>
+      <div class="legal-sec__body" id="datenschutz-text">
+      <p>Informationen zur Bearbeitung von Personendaten findet ihr in der <a href="/datenschutz.html">Datenschutzerklärung</a>.</p>
 
+      </div>
+    </section>
     <p class="hint">Stand: {{ site.legalUpdated | dateCH }}</p>
   </div>
 </section>

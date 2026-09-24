@@ -18,28 +18,31 @@ hideCta: true
       <h1>Akute Krise? Wir sind für euch da.</h1>
       <p>Akute Anfragen nehmen wir telefonisch entgegen – {{ site.akutHours }}. So können wir die Lage sofort gemeinsam einschätzen.</p>
     </div>
-    <div class="emergency" role="note">
-      <strong>Besteht Gefahr für Leib und Leben?</strong>
-      <p>Ruft sofort den Notruf: <a href="tel:112">112</a> · Polizei <a href="tel:117">117</a> · Sanität <a href="tel:144">144</a></p>
+    <div class="stack stack-md">
+      <div class="akut-call">
+        <h2 class="akut-call__label">Ruft uns direkt an</h2>
+        <p class="akut-call__number">{{ phoneDisplay }}</p>
+        <p class="akut-call__hours">Erreichbar {{ site.akutHours }}.</p>
+        {%- if site.akutPhone %}
+        <a class="btn btn--crisis akut-call__btn" href="tel:{{ site.akutPhone | replace(' ', '') }}">Jetzt anrufen</a>
+        {%- endif %}
+      </div>
+      <div class="emergency" role="note" aria-labelledby="notruf-title">
+        <strong id="notruf-title">Besteht Gefahr für Leib und Leben?</strong>
+        <ul class="emergency__grid">
+          <li><a href="tel:112"><span class="emergency__num">112</span><span>Notruf</span></a></li>
+          <li><a href="tel:117"><span class="emergency__num">117</span><span>Polizei</span></a></li>
+          <li><a href="tel:144"><span class="emergency__num">144</span><span>Sanität</span></a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section section--white">
-  <div class="container contact-layout">
+  <div class="container contact-layout akut-layout">
     <div class="contact-layout__main stack stack-xl">
-      <div class="akut-call">
-        <h2 class="h-small">Ruft uns direkt an</h2>
-        {%- if site.akutPhone %}
-        <a class="akut-call__number" href="tel:{{ site.akutPhone | replace(' ', '') }}">{{ site.akutPhone }}</a>
-        {%- else %}
-        <p class="akut-call__number">{{ phoneDisplay }}</p>
-        {%- endif %}
-        <p class="akut-call__hours">Erreichbar {{ site.akutHours }}.</p>
-        <p>Ausserhalb dieser Zeiten nehmen wir keine Anrufe entgegen. Schreibt uns dann eine kurze E-Mail an <a href="mailto:{{ site.email }}">{{ site.email }}</a> – ohne Namen oder Details zu betroffenen Personen – und wir melden uns am nächsten Werktag ab 8 Uhr.</p>
-      </div>
-
-      <div class="stack stack-md">
+      <div class="stack stack-md akut-helplines">
         <h2 class="h-small">Ausserhalb unserer Bürozeiten</h2>
         <p class="subtitle">Diese Stellen sind rund um die Uhr erreichbar:</p>
         <ul class="helplines">
@@ -48,10 +51,11 @@ hideCta: true
           <li class="helpline"><a href="tel:147">147</a><span>Pro Juventute – Beratung für Kinder und Jugendliche</span></li>
         </ul>
       </div>
+      <p class="akut-offhours">Ausserhalb dieser Zeiten nehmen wir keine Anrufe entgegen. Schreibt uns dann eine kurze E-Mail an <a href="mailto:{{ site.email }}">{{ site.email }}</a> – ohne Namen oder Details zu betroffenen Personen – und wir melden uns am nächsten Werktag ab 8 Uhr.</p>
     </div>
 
     <aside class="contact-layout__aside" aria-label="Ablauf und Alternativen">
-      <div class="panel panel--crisis">
+      <div class="panel panel--crisis akut-steps">
         <h2>So läuft es ab</h2>
         <ol class="steps steps--compact">
           <li class="steps__item"><span class="num num--crisis" aria-hidden="true">1</span><p><strong>Anruf</strong> Ihr erreicht direkt eine Fachperson für Krisen.</p></li>
@@ -59,7 +63,7 @@ hideCta: true
           <li class="steps__item"><span class="num num--crisis" aria-hidden="true">3</span><p><strong>Sofortmassnahmen</strong> Wir begleiten euch vor Ort oder am Telefon.</p></li>
         </ol>
       </div>
-      <div class="panel panel--line">
+      <div class="panel panel--line akut-notakut">
         <h2>Nicht akut?</h2>
         <p>Für Prävention oder Nachbearbeitung nutzt das Kontaktformular.</p>
         <a class="link-arrow" href="/kontakt.html?thema=krisenmanagement">Zum Kontaktformular →</a>

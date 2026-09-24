@@ -11,7 +11,7 @@ permalink: /
       <p class="eyebrow">Bildung · Entwicklung · Lösungen</p>
       <h1 class="h-display">{{ site.claim }}</h1>
       <p class="lead">EDUSOL begleitet Schulen, Teams und Organisationen – mit echten Erfahrungen aus der Praxis. Keine Theorien von aussen, sondern Lösungen von innen.</p>
-      <div class="cluster">
+      <div class="cluster cluster--stack">
         <a class="btn btn--primary btn--lg" href="/kontakt.html">Gemeinsam loslegen</a>
         <a class="btn btn--outline btn--lg" href="#wirkungsfelder">Wirkungsfelder ansehen</a>
       </div>
@@ -39,7 +39,7 @@ permalink: /
       <h2 class="h-small" id="finder-title">Wo steht ihr gerade?</h2>
       <p class="subtitle">Wählt, was am ehesten zutrifft – wir zeigen euch den passenden Weg.</p>
     </div>
-    <ul class="finder__grid">
+    <ul class="finder__grid scroller">
       {%- for q in finder %}
       {%- set f = q.field | field(fields) %}
       <li class="theme-{{ f.slug }}">
@@ -60,19 +60,24 @@ permalink: /
       <h2 class="h-section" id="felder-title">Unsere Wirkungsfelder</h2>
       <p class="subtitle">Was wir tun – und wie wir wirken.</p>
     </div>
-    <ul class="field-grid">
-      {%- for f in fields %}
+    {% include "partials/field-cards.njk" %}
+  </div>
+</section>
+
+<section class="section section--white home-stories" aria-labelledby="stories-title">
+  <div class="container stack stack-lg">
+    <div class="home-stories__head">
+      <h2 class="h-small" id="stories-title">Einblicke</h2>
+      <a class="link-arrow" href="/einblicke.html">Alle ansehen <span aria-hidden="true">→</span></a>
+    </div>
+    <ul class="story-grid scroller">
+      {%- for s in stories %}
+      {%- set f = s.field | field(fields) %}
       <li class="theme-{{ f.slug }}">
-        <a class="field-card" href="/{{ f.slug }}.html">
-          <div class="field-card__head">
-            <img src="/assets/img/eulen/{{ f.slug }}.svg" width="62" height="56" alt="" loading="lazy">
-            <h3 class="field-card__title">{{ f.menuTitle }}</h3>
-          </div>
-          <p class="field-card__text">{{ f.lead }}</p>
-          <ul class="tags" aria-label="Formate">
-            {%- for o in f.features %}<li class="tag">{{ o.title }}</li>{% endfor %}
-          </ul>
-          <span class="field-card__more">Mehr erfahren <span aria-hidden="true">→</span></span>
+        <a class="story" href="/{{ f.slug }}.html">
+          <span class="chip-field"><img src="/assets/img/eulen/{{ f.slug }}.svg" width="24" height="22" alt="">{{ f.menuTitle }}</span>
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.text }}</p>
         </a>
       </li>
       {%- endfor %}
