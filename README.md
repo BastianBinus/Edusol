@@ -65,6 +65,33 @@ Die Datenschutzerklärung nennt beim Build auf Vercel automatisch Vercel als Hos
 `api/contact.js` (Vercel Function, Region Frankfurt) prüft die Anfrage serverseitig und sendet sie per SMTP
 direkt ins Postfach – ohne Formularanbieter, ohne CAPTCHA. Logik: `lib/contact.js`, Tests: `tests/`.
 
+> **Status: noch nicht aktiv – wartet auf ein eigenes Postfach.** Bis dahin läuft das Formular über Formspree.
+> Die Mails von edusol.ch liegen bei **Hostpoint** (`info@edusol.ch`). Geplant ist ein eigenes Postfach
+> `form@edusol.ch` nur für den Versand. Offen:
+>
+> - [ ] Klären, ob wir bei Hostpoint ein zusätzliches Postfach anlegen dürfen (Kunde/Abo).
+> - [ ] `form@edusol.ch` als **eigenen Mailaccount** anlegen – *keine* „alternative Adresse“ (Alias von info@),
+>       sonst läuft der SMTP-Login weiter mit dem Passwort von info@.
+> - [ ] Starkes, einmaliges Passwort vergeben; in form@ eine Weiterleitung an info@ einrichten (Bounces).
+> - [ ] Hostpoint Control Panel → *Domains → Bearbeiten → E-Mail-Sicherheit konfigurieren*: DKIM aktiv,
+>       DMARC gesetzt, genau ein SPF-Eintrag.
+>
+> Das Passwort von info@ nicht in Vercel hinterlegen: Ein Leck würde das ganze Hauptpostfach offenlegen.
+
+Werte für Hostpoint:
+
+| Variable | Wert |
+|---|---|
+| `SMTP_HOST` | `asmtp.mail.hostpoint.ch` |
+| `SMTP_PORT` | `587` (STARTTLS) – alternativ `465` (SSL) |
+| `SMTP_USER` | `form@edusol.ch` |
+| `SMTP_PASS` | Passwort von form@ (in Vercel als *Sensitive* markieren) |
+| `MAIL_FROM` | `EDUSOL Website <form@edusol.ch>` |
+| `MAIL_TO` | `info@edusol.ch` |
+| `CONTACT_BACKEND` | `vercel` |
+
+Variablen nur für *Production* setzen – sonst verschicken Preview-Deployments echte Mails.
+
 Aktivieren in Vercel → *Settings → Environment Variables* (Vorlage: `.env.example`):
 
 1. SMTP-Zugang vom E-Mail-Anbieter eintragen: `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`
@@ -92,4 +119,5 @@ Veröffentlicht wird ausschliesslich über Vercel.
 - [ ] Platzhalter in `src/_data/site.js` ersetzen (`npm run check:placeholders -- --strict`)
 - [ ] Datenschutzerklärung und Impressum rechtlich prüfen lassen
 - [ ] Auftragsbearbeitungsvertrag (DPA) mit Formspree abschliessen
+- [ ] Kontaktformular auf eigene Funktion umstellen (siehe *Kontaktformular*: Postfach `form@edusol.ch` bei Hostpoint)
 - [ ] `securityTxtExpires` jährlich erneuern (Kalendereintrag!)
