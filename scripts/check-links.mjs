@@ -45,6 +45,7 @@ for (const file of htmlFiles) {
     if (target.endsWith(path.sep) || (await stat(target).then((s) => s.isDirectory(), () => false))) {
       target = path.join(target, "index.html");
     }
+    if (!(await exists(target)) && (await exists(`${target}.html`))) target = `${target}.html`;
     if (!(await exists(target))) {
       errors.push(`${path.relative(ROOT, file)}: "${ref}" → Datei fehlt`);
       continue;

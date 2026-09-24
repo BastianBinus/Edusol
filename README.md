@@ -7,7 +7,7 @@ Statische Website von EDUSOL, gebaut mit [Eleventy](https://www.11ty.dev/) und a
 ```bash
 npm ci
 npm start          # Dev-Server mit Live-Reload auf http://localhost:8080
-npm test           # Build + HTML-Validierung + Linkcheck + axe + Formular-E2E
+npm test           # Build + HTML-Validierung + Links + Security-Header + axe + Formular-E2E
 npx @lhci/cli@0.15.1 autorun   # Lighthouse mit Budgets (LCP ≤ 2,5 s, CLS ≤ 0,1, JS ≤ 20 KB …)
 ```
 
@@ -29,6 +29,9 @@ bzw. `CHROMIUM_PATH=…` / `CHROME_PATH=…`).
 | `scripts/` | Prüfskripte und Icon-Generator (`npm run icons`) |
 
 Navbar und Footer existieren nur einmal (`src/_includes/partials/`).
+
+**CSP:** Die Content-Security-Policy steht zweimal – als HTTP-Header in `vercel.json` und als Meta-Tag in
+`src/_includes/layouts/base.njk`. Beide immer gemeinsam ändern; `npm run check:headers` bricht bei Abweichungen ab.
 Inline-Styles sind per `html-validate` verboten, damit die CSP ohne `'unsafe-inline'` auskommt.
 Das CSS (`src/assets/css/main.css`, ohne Framework) wird beim Build mit Lightning CSS minifiziert
 und als `assets/css/site.css` ausgeliefert.
@@ -40,7 +43,7 @@ und als `assets/css/site.css` ausgeliefert.
 
 ### Vercel (empfohlen)
 
-`vercel.json` enthält Build-Einstellungen und die Security-Header (CSP inkl. `frame-ancestors`, HSTS,
+`vercel.json` enthält Build-Einstellungen, `cleanUrls` (auch für Links/Canonical/Sitemap massgebend) und die Security-Header (CSP inkl. `frame-ancestors`, HSTS,
 `nosniff`, `Permissions-Policy` …). Einrichtung einmalig im Vercel-Dashboard:
 
 1. *Add New → Project* → Repository `BastianBinus/Edusol` importieren (Framework: *Other*; der Rest kommt aus `vercel.json`).
