@@ -58,6 +58,9 @@ jobs:
       - name: Contact form (E2E)
         run: npm run check:form
 
+      - name: UI interactions (E2E)
+        run: npm run check:ui
+
       - name: Lighthouse CI (Budgets)
         run: npx -y @lhci/cli@0.15.1 autorun
 

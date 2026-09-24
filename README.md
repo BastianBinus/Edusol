@@ -7,7 +7,7 @@ Statische Website von EDUSOL, gebaut mit [Eleventy](https://www.11ty.dev/) und a
 ```bash
 npm ci
 npm start          # Dev-Server mit Live-Reload auf http://localhost:8080
-npm test           # Build + HTML-Validierung + Links + Security-Header + axe + Formular-E2E
+npm test           # Build + HTML + Links + Security-Header + axe + Formular- und UI-E2E
 npx @lhci/cli@0.15.1 autorun   # Lighthouse mit Budgets (LCP ≤ 2,5 s, CLS ≤ 0,1, JS ≤ 20 KB …)
 ```
 

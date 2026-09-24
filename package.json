@@ -13,10 +13,11 @@
     "check:links": "node scripts/check-links.mjs",
     "check:a11y": "node scripts/check-a11y.mjs",
     "check:placeholders": "node scripts/check-placeholders.mjs",
-    "test": "npm run build && npm run check:html && npm run check:links && npm run check:headers && npm run check:a11y && npm run check:form",
+    "test": "npm run build && npm run check:html && npm run check:links && npm run check:headers && npm run check:a11y && npm run check:form && npm run check:ui",
     "check:form": "node scripts/check-form.mjs",
     "serve": "node scripts/serve.mjs",
-    "check:headers": "node scripts/check-headers.mjs"
+    "check:headers": "node scripts/check-headers.mjs",
+    "check:ui": "node scripts/check-ui.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",
