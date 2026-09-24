@@ -12,6 +12,17 @@ hideCta: true
     <img src="/assets/img/eulen/logo.svg" width="70" height="64" alt="">
     <h1 class="h-page">Danke – eure Anfrage ist bei uns.</h1>
     <p class="lead">Wir melden uns innert 48 Stunden bei euch.</p>
-    <p><a class="btn btn--primary" href="/#wirkungsfelder">Unsere Wirkungsfelder ansehen</a></p>
+    <div class="panel panel--line panel--white">
+      <h2>Wie es weitergeht</h2>
+      <ol class="steps steps--compact">
+        {%- for st in steps %}
+        <li class="steps__item"><span class="num" aria-hidden="true">{{ loop.index }}</span><p><strong>{{ st.title }}</strong> {{ st.text }}</p></li>
+        {%- endfor %}
+      </ol>
+    </div>
+    <div class="cluster cluster--stack">
+      <a class="btn btn--outline" href="/"><span aria-hidden="true">←</span> Zur Startseite</a>
+      <a class="btn btn--primary" href="/wirkungsfelder.html">Unsere Wirkungsfelder ansehen</a>
+    </div>
   </div>
 </section>

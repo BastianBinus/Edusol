@@ -1,11 +1,11 @@
 <footer class="site-footer on-dark">
   <div class="container site-footer__inner">
     <div class="site-footer__cols">
-      <div class="stack stack-md">
+      <div class="stack stack-md site-footer__brand">
         <a class="site-footer__logo" href="/"><img src="/assets/img/logo.svg" width="118" height="30" alt="EDUSOL – zur Startseite"></a>
         <p class="site-footer__claim">Bildung, die bewegt. Entwicklung, die wirkt. Lösungen, die bleiben.</p>
       </div>
-      <nav class="stack stack-sm" aria-labelledby="footer-felder">
+      <nav class="stack stack-sm site-footer__felder" aria-labelledby="footer-felder">
         <h2 class="site-footer__heading" id="footer-felder">Wirkungsfelder</h2>
         <ul class="site-footer__list">
           {%- for f in fields %}
@@ -13,7 +13,7 @@
           {%- endfor %}
         </ul>
       </nav>
-      <nav class="stack stack-sm" aria-labelledby="footer-edusol">
+      <nav class="stack stack-sm site-footer__edusol" aria-labelledby="footer-edusol">
         <h2 class="site-footer__heading" id="footer-edusol">EDUSOL</h2>
         <ul class="site-footer__list">
           <li><a href="/ueber-uns.html">Wir sind EDUSOL</a></li>
@@ -23,7 +23,7 @@
           <li><a class="is-strong" href="/akut.html">Akut-Hilfe</a></li>
         </ul>
       </nav>
-      <div class="stack stack-sm">
+      <div class="stack stack-sm site-footer__kontakt">
         <h2 class="site-footer__heading">Kontakt</h2>
         <ul class="site-footer__list">
           <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
@@ -44,4 +44,7 @@
       </ul>
     </div>
   </div>
+  {%- if not hideAkutTab %}
+  {% include "partials/akut-fab.njk" %}
+  {%- endif %}
 </footer>

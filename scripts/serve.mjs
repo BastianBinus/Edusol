@@ -4,6 +4,7 @@ import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { gzipSync } from "node:zlib";
 import { handleContact } from "../lib/contact.js";
 
 // Lokaler Ersatz für die Vercel-Funktion /api/contact: echte Logik, Versand nur simuliert.
@@ -57,8 +58,11 @@ export function startServer(port = 0) {
     else if (!info && (await stat(`${filePath}.html`).catch(() => null))) filePath = `${filePath}.html`;
     try {
       const body = await readFile(filePath);
-      res.writeHead(200, { "Content-Type": TYPES[path.extname(filePath)] ?? "application/octet-stream" });
-      res.end(body);
+      const type = TYPES[path.extname(filePath)] ?? "application/octet-stream";
+      // Komprimiert wie auf Vercel, damit Lighthouse echte Übertragungsgrössen misst.
+      const compress = /text|javascript|svg|xml/.test(type) && /\bgzip\b/.test(req.headers["accept-encoding"] ?? "");
+      res.writeHead(200, { "Content-Type": type, ...(compress ? { "Content-Encoding": "gzip", Vary: "Accept-Encoding" } : {}) });
+      res.end(compress ? gzipSync(body) : body);
     } catch {
       res.writeHead(404, { "Content-Type": TYPES[".html"] });
       res.end(await readFile(path.join(ROOT, "404.html")));

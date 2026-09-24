@@ -47,15 +47,72 @@ const expect = (cond, msg) => cond || failures.push(msg);
   await page.close();
 }
 
-// Akut-Seitenreiter (Mobile): unteres Drittel, kein horizontales Scrollen
+// Mobile: Akut-Knopf statt Seitenreiter, kein horizontales Scrollen
 {
   const page = await browser.newPage({ viewport: { width: 375, height: 800 } });
   await page.goto(`${base}/`);
-  const box = await page.locator(".akut-tab").boundingBox();
-  expect(box && box.y > 800 / 2, "Akut-Tab mobil: nicht im unteren Bereich");
-  await page.locator(".akut-tab__toggle").click();
+  expect(!(await page.locator(".akut-tab").isVisible()), "Mobil: Seitenreiter sichtbar statt Akut-Knopf");
+  const fab = page.locator(".akut-fab");
+  expect(await fab.isVisible(), "Mobil: Akut-Knopf nicht sichtbar");
+  const box = await fab.boundingBox();
+  expect(box && box.y > 800 / 2, "Mobil: Akut-Knopf nicht im unteren Bereich");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "Mobil: horizontales Scrollen auf der Startseite");
+
+  // Bottom-Sheet-Menü
+  const toggle = page.locator(".nav-toggle");
+  await toggle.click();
   await page.waitForTimeout(400);
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "Akut-Tab mobil: offenes Panel erzeugt horizontales Scrollen");
+  expect((await toggle.getAttribute("aria-expanded")) === "true", "Menü mobil: aria-expanded nicht true");
+  expect(await page.locator(".site-nav .mega__item").first().isVisible(), "Menü mobil: Wirkungsfelder nicht sichtbar");
+  expect(!(await fab.isVisible()), "Menü mobil: Akut-Knopf liegt über dem Menü");
+  expect(await page.evaluate(() => document.querySelector(".site-nav").contains(document.activeElement)), "Menü mobil: Fokus nicht im Menü");
+  await page.keyboard.press("Escape");
+  await page.waitForTimeout(400);
+  expect((await toggle.getAttribute("aria-expanded")) === "false", "Menü mobil: Escape schliesst nicht");
+  expect(await page.evaluate(() => document.activeElement?.classList.contains("nav-toggle")), "Menü mobil: Fokus nach Escape nicht zurück");
+  await toggle.click();
+  await page.waitForTimeout(400);
+  await page.mouse.click(200, 40);
+  await page.waitForTimeout(400);
+  expect((await toggle.getAttribute("aria-expanded")) === "false", "Menü mobil: Klick auf Hintergrund schliesst nicht");
+
+  // Wirkungsfeld: Aktionsleiste unten, Akut-Knopf darüber
+  await page.goto(`${base}/krisenmanagement.html`);
+  const bar = await page.locator(".bottom-bar").boundingBox();
+  const fabBox = await page.locator(".akut-fab").boundingBox();
+  expect(bar && bar.y + bar.height >= 799, "Wirkungsfeld mobil: Aktionsleiste nicht am unteren Rand");
+  expect(bar && fabBox && fabBox.y + fabBox.height <= bar.y, "Wirkungsfeld mobil: Akut-Knopf überdeckt die Aktionsleiste");
+  const more = page.locator("[data-clamp-toggle]");
+  await more.click();
+  expect((await more.getAttribute("aria-expanded")) === "true", "Wirkungsfeld mobil: Weiterlesen klappt nicht auf");
+
+  // Kontakt: Assistent in drei Schritten
+  await page.goto(`${base}/kontakt.html`);
+  const next = page.locator("[data-wizard-next]");
+  expect(await page.locator("[data-step='1']").isVisible(), "Assistent: Schritt 1 nicht sichtbar");
+  expect(!(await page.locator("[data-step='2']").isVisible()), "Assistent: Schritt 2 zu früh sichtbar");
+  expect((await next.textContent()).trim() === "Überspringen", "Assistent: ohne Thema nicht «Überspringen»");
+  await next.click();
+  expect(await page.locator("#name").isVisible(), "Assistent: Schritt 2 erscheint nicht");
+  await next.click();
+  expect((await page.locator("#name").getAttribute("aria-invalid")) === "true", "Assistent: leerer Name wird nicht gemeldet");
+  await page.fill("#name", "Test Person");
+  await page.fill("#email", "test@example.ch");
+  await next.click();
+  expect(await page.locator("#nachricht").isVisible(), "Assistent: Schritt 3 erscheint nicht");
+  expect((await next.textContent()).trim() === "Anfrage senden", "Assistent: letzter Schritt nicht «Anfrage senden»");
+  await page.locator("[data-wizard-back]").click();
+  expect(await page.locator("#name").isVisible(), "Assistent: Zurück funktioniert nicht");
+
+  // Rechtstexte: Akkordeon, Sprungmarke öffnet den Abschnitt
+  await page.goto(`${base}/datenschutz.html`);
+  const sectionButton = page.locator("#grundlagen > button");
+  expect((await sectionButton.getAttribute("aria-expanded")) === "false", "Akkordeon: Abschnitt nicht zugeklappt");
+  expect(!(await page.locator("#grundlagen-text").isVisible()), "Akkordeon: Text sichtbar, obwohl zugeklappt");
+  await sectionButton.click();
+  expect(await page.locator("#grundlagen-text").isVisible(), "Akkordeon: Text nach Klick nicht sichtbar");
+  await page.goto(`${base}/datenschutz.html#kontaktformular`);
+  expect(await page.locator("#kontaktformular-text").isVisible(), "Akkordeon: Sprungmarke öffnet den Abschnitt nicht");
   await page.close();
 }
 
@@ -76,4 +133,4 @@ if (failures.length) {
   console.error(failures.map((f) => `✖ ${f}`).join("\n"));
   process.exit(1);
 }
-console.log("UI-Tests ok: Akut-Seitenreiter (Desktop/Mobile, Tastatur), 404.");
+console.log("UI-Tests ok: Akut-Seitenreiter, mobiles Menü, Akut-Knopf, Aktionsleiste, Formular-Assistent, Akkordeon, 404.");

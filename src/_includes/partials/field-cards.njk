@@ -1,0 +1,19 @@
+<ul class="field-grid">
+  {%- for f in fields %}
+  <li class="theme-{{ f.slug }}">
+    <a class="field-card" href="/{{ f.slug }}.html">
+      <div class="field-card__head">
+        <img src="/assets/img/eulen/{{ f.slug }}.svg" width="62" height="56" alt="" loading="lazy">
+        <h3 class="field-card__title">{{ f.menuTitle }}</h3>
+        <span class="field-card__arrow" aria-hidden="true">→</span>
+      </div>
+      <p class="field-card__text">{{ f.lead }}</p>
+      <ul class="tags" aria-label="Formate">
+        {%- for o in f.features %}<li class="tag">{{ o.title }}</li>{% endfor %}
+      </ul>
+      <p class="field-card__formats"><span class="visually-hidden">Formate: </span>{% for o in f.features %}{{ o.title }}{% if not loop.last %} · {% endif %}{% endfor %}</p>
+      <span class="field-card__more">Mehr erfahren <span aria-hidden="true">→</span></span>
+    </a>
+  </li>
+  {%- endfor %}
+</ul>

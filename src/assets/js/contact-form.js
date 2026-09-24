@@ -34,12 +34,9 @@
     });
   }
 
-  if (!window.fetch) return;
-
   const submitButton = form.querySelector('button[type="submit"]');
   const submitLabel = submitButton.textContent;
   const fallbackEmail = form.dataset.fallbackEmail;
-  form.noValidate = true;
 
   const labelText = (field) => form.querySelector(`label[for="${field.id}"]`)?.textContent.replace(/^\d+\.\s*/, "").trim() ?? "dieses Feld";
 
@@ -73,6 +70,64 @@
     field.addEventListener("input", () => field.getAttribute("aria-invalid") === "true" && validate(field));
   });
 
+  // Mobil: Formular als Assistent in drei Schritten (Fortschritt oben, Aktionen unten).
+  const mobile = window.matchMedia("(max-width: 47.99rem)");
+  const steps = [...form.querySelectorAll("[data-step]")];
+  const wizardNav = form.querySelector("[data-wizard-nav]");
+  const backButton = form.querySelector("[data-wizard-back]");
+  const nextButton = form.querySelector("[data-wizard-next]");
+  const progress = document.querySelector("[data-wizard-progress]");
+  const count = document.querySelector("[data-wizard-count]");
+  const bar = document.querySelector("[data-wizard-bar]");
+  const topicLabel = form.querySelector("[data-wizard-topic]");
+  let current = 1;
+
+  const stepOf = (field) => Number(field.closest("[data-step]")?.dataset.step ?? steps.length);
+
+  const nextLabel = () => {
+    if (current === steps.length) return "Anfrage senden";
+    if (current === 1 && !topics.some((t) => t.checked)) return "Überspringen";
+    return "Weiter";
+  };
+
+  const showStep = (n, { focus = false } = {}) => {
+    current = n;
+    form.dataset.current = String(n);
+    if (count) count.textContent = `Schritt ${n} von ${steps.length}`;
+    if (bar) bar.style.width = `${(n / steps.length) * 100}%`;
+    if (backButton) backButton.hidden = n === 1;
+    if (nextButton) nextButton.textContent = nextLabel();
+    const checked = topics.find((t) => t.checked);
+    if (topicLabel) {
+      topicLabel.hidden = !checked;
+      topicLabel.textContent = checked ? `Thema: ${checked.value}` : "";
+    }
+    if (focus && mobile.matches) {
+      const title = steps[n - 1].querySelector(".form-step__title");
+      title?.setAttribute("tabindex", "-1");
+      title?.focus({ preventScroll: true });
+      window.scrollTo({ top: 0 });
+    }
+  };
+
+  if (steps.length && wizardNav && nextButton) {
+    topics.forEach((t) => t.addEventListener("change", () => (nextButton.textContent = nextLabel())));
+    backButton?.addEventListener("click", () => showStep(Math.max(1, current - 1), { focus: true }));
+    nextButton.addEventListener("click", () => {
+      if (current < steps.length) {
+        const invalid = required.filter((field) => stepOf(field) === current && !validate(field));
+        if (invalid.length) {
+          invalid[0].focus();
+          return;
+        }
+        showStep(current + 1, { focus: true });
+        return;
+      }
+      form.requestSubmit();
+    });
+    showStep(1);
+  }
+
   const setStatus = (type, text) => {
     status.className = `form-status form-status--${type}`;
     status.textContent = text;
@@ -81,14 +136,22 @@
 
   const setBusy = (busy) => {
     submitButton.disabled = busy;
+    if (nextButton) {
+      nextButton.disabled = busy;
+      nextButton.textContent = busy ? "Wird gesendet …" : nextLabel();
+    }
     submitButton.textContent = busy ? "Wird gesendet …" : submitLabel;
     form.setAttribute("aria-busy", String(busy));
   };
+
+  if (!window.fetch) return;
+  form.noValidate = true;
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const invalid = required.filter((field) => !validate(field));
     if (invalid.length) {
+      if (steps.length) showStep(stepOf(invalid[0]));
       setStatus("error", `Bitte ${invalid.length === 1 ? "ein Feld" : `${invalid.length} Felder`} ergänzen.`);
       invalid[0].focus();
       return;
@@ -104,6 +167,7 @@
       if (response.ok) {
         form.reset();
         form.hidden = true;
+        if (progress) progress.hidden = true;
         status.hidden = true;
         if (success) {
           success.hidden = false;
@@ -125,6 +189,7 @@
         .filter(([field]) => field instanceof HTMLElement && field.id);
       if (fieldErrors.length) {
         const more = document.getElementById("more-fields");
+        if (steps.length) showStep(Math.min(...fieldErrors.map(([field]) => stepOf(field))));
         fieldErrors.forEach(([field, message]) => {
           if (more?.contains(field)) more.hidden = false;
           setError(field, message);
