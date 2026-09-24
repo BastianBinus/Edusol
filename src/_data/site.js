@@ -20,6 +20,9 @@ export default {
   hosting: onVercel ? "vercel" : "github-pages",
   // Vercel Web Analytics (cookielos) – das Script existiert nur auf Vercel.
   analytics: onVercel,
+  // Vercel Speed Insights (kostenpflichtig): erst einschalten, wenn in Vercel aktiviert –
+  // dazu in Vercel die Umgebungsvariable SPEED_INSIGHTS=true setzen und neu deployen.
+  speedInsights: onVercel && process.env.SPEED_INSIGHTS === "true",
   email: "info@edusol.ch",
   securityEmail: "info@edusol.ch",
   phone: "",

@@ -51,6 +51,9 @@ und als `assets/css/site.css` ausgeliefert.
 3. Eigene Domain unter *Settings → Domains* hinzufügen. `SITE_URL` nur setzen, falls die Domain nicht die
    Produktions-Domain des Projekts ist.
 
+**Speed Insights (optional, kostenpflichtig):** In Vercel aktivieren und zusätzlich die Umgebungsvariable
+`SPEED_INSIGHTS=true` setzen, dann neu deployen. Script und Datenschutz-Absatz erscheinen erst dann.
+
 **Web Analytics:** In Vercel unter *Analytics → Enable* aktivieren. Das Script `/_vercel/insights/script.js`
 wird nur beim Build auf Vercel eingebunden (cookielos, gleiche Domain, keine CSP-Ausnahmen nötig).
 

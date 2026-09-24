@@ -83,6 +83,12 @@ permalink: /datenschutz.html
     <p>
       Die Angaben sind freiwillig. Ohne Name, E-Mail-Adresse und Nachricht können wir eure Anfrage jedoch nicht beantworten.
     </p>
+    <p id="eigene-angaben">
+      <strong>Was ihr uns mitteilt, entscheidet ihr selbst.</strong> Bitte gebt im Formular und in E-Mails nur an, was wir
+      für eure Anfrage brauchen. Verzichtet insbesondere auf Namen von Schülerinnen und Schülern oder anderen Dritten sowie
+      auf Angaben zur Gesundheit oder andere besonders schützenswerte Personendaten. Solche Details besprechen wir lieber
+      persönlich.
+    </p>
 
     <h2 id="email">5. Kontakt per E-Mail</h2>
     <p>
@@ -118,6 +124,15 @@ permalink: /datenschutz.html
       neu erzeugt wird; ein Wiedererkennen über mehrere Tage oder über andere Websites ist damit nicht möglich. Wir sehen
       ausschliesslich zusammengefasste Statistiken, keine einzelnen Personen.
       Mehr dazu: <a href="https://vercel.com/docs/analytics/privacy-policy" rel="noopener">Datenschutzhinweise zu Vercel Web Analytics</a>.
+    </p>
+    {%- endif %}
+    {%- if site.speedInsights %}
+    <p>
+      Zusätzlich messen wir mit <strong>Vercel Speed Insights</strong>, wie schnell die Seiten bei euch laden
+      (sogenannte Core Web Vitals). Dabei werden Ladezeiten, die aufgerufene Seite, Gerätetyp, Browser und Land erfasst –
+      ohne Cookies und ohne Daten, mit denen sich ein Besuch über mehrere Seiten nachverfolgen oder eine Person
+      identifizieren liesse. Die Werte dienen nur dazu, die Website technisch zu verbessern.
+      Mehr dazu: <a href="https://vercel.com/docs/speed-insights/privacy-policy" rel="noopener">Datenschutzhinweise zu Vercel Speed Insights</a>.
     </p>
     {%- endif %}
 

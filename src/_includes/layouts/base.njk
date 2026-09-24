@@ -64,6 +64,10 @@
   {#- Vercel Web Analytics: cookielos, gleiche Domain, nur auf Vercel vorhanden #}
   <script src="/_vercel/insights/script.js" defer></script>
   {%- endif %}
+  {%- if site.speedInsights %}
+  {#- Vercel Speed Insights: misst Ladezeiten echter Besuche, cookielos, gleiche Domain #}
+  <script src="/_vercel/speed-insights/script.js" defer></script>
+  {%- endif %}
   <script src="/assets/js/nav.js" defer></script>
   {%- if pageScript %}
   <script src="{{ pageScript }}" defer></script>
