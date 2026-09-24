@@ -338,6 +338,13 @@ main:focus {
   text-wrap: pretty;
 }
 
+.lead a,
+.prose a {
+  color: var(--c-primary-strong);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .prose p + p {
   margin-top: 1rem;
 }

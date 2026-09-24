@@ -1,0 +1,20 @@
+---
+layout: layouts/base.njk
+title: Anfrage nicht gesendet
+description: Die Anfrage konnte nicht gesendet werden. Bitte prüft eure Angaben oder schreibt uns direkt per E-Mail.
+permalink: /kontakt-fehler.html
+noindex: true
+excludeFromSitemap: true
+hideCta: true
+---
+<section class="hero hero--page">
+  <div class="container container--narrow hero__inner stack stack-lg">
+    <h1 class="h-page">Die Anfrage wurde nicht gesendet.</h1>
+    <p class="lead">
+      Vermutlich fehlt eine Angabe oder sie hat das falsche Format – etwa die E-Mail-Adresse.
+      Bitte geht zurück und prüft eure Eingaben, oder schreibt uns direkt an
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>.
+    </p>
+    <p><a class="btn btn--primary" href="/kontakt.html">Zurück zum Formular</a></p>
+  </div>
+</section>

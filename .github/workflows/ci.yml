@@ -37,6 +37,9 @@ jobs:
       - name: Audit dependencies
         run: npm audit --audit-level=high
 
+      - name: Unit tests (Kontakt-API)
+        run: npm run check:api
+
       - name: Build
         run: npm run build
 
@@ -60,6 +63,9 @@ jobs:
 
       - name: UI interactions (E2E)
         run: npm run check:ui
+
+      - name: Contact form via own API (E2E)
+        run: npm run check:form:vercel
 
       - name: Lighthouse CI (Budgets)
         run: npx -y @lhci/cli@0.15.1 autorun

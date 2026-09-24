@@ -4,6 +4,10 @@ import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { handleContact } from "../lib/contact.js";
+
+// Lokaler Ersatz für die Vercel-Funktion /api/contact: echte Logik, Versand nur simuliert.
+export const sentMails = [];
 
 const ROOT = path.resolve("_site");
 export const PREFIX = (process.env.PATH_PREFIX || "/").replace(/\/?$/, "/");
@@ -24,6 +28,28 @@ export function startServer(port = 0) {
   const server = createServer(async (req, res) => {
     let urlPath = decodeURIComponent(new URL(req.url, "http://x").pathname);
     if (urlPath.startsWith(PREFIX)) urlPath = "/" + urlPath.slice(PREFIX.length);
+
+    if (urlPath === "/api/contact") {
+      const chunks = [];
+      for await (const chunk of req) chunks.push(chunk);
+      const request = new Request(`http://${req.headers.host}${req.url}`, {
+        method: req.method,
+        headers: req.headers,
+        body: ["GET", "HEAD"].includes(req.method) ? undefined : Buffer.concat(chunks),
+      });
+      const response = await handleContact(request, {
+        send: async (mail) => sentMails.push(mail),
+        config: { to: "test@edusol.invalid", from: "website@edusol.invalid" },
+        log: { error() {} },
+      });
+      const location = response.headers.get("location");
+      res.writeHead(response.status, {
+        ...Object.fromEntries(response.headers),
+        ...(location?.startsWith("/") ? { location: `${PREFIX.slice(0, -1)}${location}` } : {}),
+      });
+      res.end(Buffer.from(await response.arrayBuffer()));
+      return;
+    }
     let filePath = path.join(ROOT, urlPath);
     const info = await stat(filePath).catch(() => null);
     if (info?.isDirectory()) filePath = path.join(filePath, "index.html");

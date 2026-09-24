@@ -32,7 +32,9 @@ export default {
   akutHoursShort: "Mo–Fr 8–17 Uhr",
   whatsapp: "",
   linkedin: "https://www.linkedin.com/company/edusol",
-  formAction: "https://formspree.io/f/xvzdelpq",
+  // Kontaktformular: "vercel" = eigene Funktion /api/contact (SMTP, siehe README), sonst Formspree.
+  contactBackend: process.env.CONTACT_BACKEND === "vercel" ? "vercel" : "formspree",
+  formspreeAction: "https://formspree.io/f/xvzdelpq",
   // Anbieter = Verein (Art. 60 ff. ZGB). Name exakt wie in den Statuten.
   owner: {
     name: "[Platzhalter – Vereinsname gemäss Statuten, z. B. Verein EDUSOL]",

@@ -27,7 +27,7 @@ hideCta: true
         <p><a class="link-arrow" href="/">← Zur Startseite</a></p>
       </div>
 
-      <form class="form" id="contact-form" action="{{ site.formAction }}" method="POST" data-fallback-email="{{ site.email }}">
+      <form class="form" id="contact-form" action="{{ '/api/contact' if site.contactBackend == 'vercel' else site.formspreeAction }}" method="POST" data-fallback-email="{{ site.email }}">
         <input type="hidden" name="_subject" value="Neue Anfrage über edusol.ch">
         <div class="hp-field" aria-hidden="true">
           <label for="website">Dieses Feld bitte leer lassen</label>
@@ -72,11 +72,13 @@ hideCta: true
           <div class="field-row" id="more-fields">
             <div class="field">
               <label for="telefon">Telefon <span class="optional">(optional)</span></label>
-              <input class="input" type="tel" id="telefon" name="telefon" autocomplete="tel">
+              <input class="input" type="tel" id="telefon" name="telefon" autocomplete="tel" aria-describedby="telefon-error">
+              <p class="field-error" id="telefon-error" hidden></p>
             </div>
             <div class="field">
               <label for="organisation">Schule, Verein, Unternehmen <span class="optional">(optional)</span></label>
-              <input class="input" type="text" id="organisation" name="organisation" autocomplete="organization">
+              <input class="input" type="text" id="organisation" name="organisation" autocomplete="organization" aria-describedby="organisation-error">
+              <p class="field-error" id="organisation-error" hidden></p>
             </div>
           </div>
         </fieldset>
@@ -91,7 +93,11 @@ hideCta: true
         </div>
 
         <p class="form-privacy">
+          {%- if site.contactBackend == "vercel" %}
+          Eure Angaben werden direkt an unser Postfach übermittelt und nur zur Bearbeitung eurer Anfrage verwendet.
+          {%- else %}
           Eure Angaben werden über den Formulardienst Formspree (USA) an uns übermittelt und nur zur Bearbeitung eurer Anfrage verwendet.
+          {%- endif %}
           Details in der <a href="/datenschutz.html#kontaktformular">Datenschutzerklärung</a>.
         </p>
 
