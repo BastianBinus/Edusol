@@ -46,6 +46,9 @@ jobs:
       - name: Check links
         run: npm run check:links
 
+      - name: Check security headers
+        run: npm run check:headers
+
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 

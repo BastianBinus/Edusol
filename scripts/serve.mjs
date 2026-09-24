@@ -25,7 +25,10 @@ export function startServer(port = 0) {
     let urlPath = decodeURIComponent(new URL(req.url, "http://x").pathname);
     if (urlPath.startsWith(PREFIX)) urlPath = "/" + urlPath.slice(PREFIX.length);
     let filePath = path.join(ROOT, urlPath);
-    if ((await stat(filePath).catch(() => null))?.isDirectory()) filePath = path.join(filePath, "index.html");
+    const info = await stat(filePath).catch(() => null);
+    if (info?.isDirectory()) filePath = path.join(filePath, "index.html");
+    // cleanUrls wie auf Vercel: /kontakt → kontakt.html
+    else if (!info && (await stat(`${filePath}.html`).catch(() => null))) filePath = `${filePath}.html`;
     try {
       const body = await readFile(filePath);
       res.writeHead(200, { "Content-Type": TYPES[path.extname(filePath)] ?? "application/octet-stream" });

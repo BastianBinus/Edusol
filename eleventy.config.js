@@ -1,7 +1,14 @@
+import { readFileSync } from "node:fs";
 import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
 import path from "node:path";
 import { HtmlBasePlugin } from "@11ty/eleventy";
 import { transform } from "lightningcss";
+
+// Einzige Quelle für saubere URLs: vercel.json ("cleanUrls": true → /kontakt statt /kontakt.html).
+const { cleanUrls = false } = JSON.parse(readFileSync("vercel.json", "utf8"));
+
+const cleanPath = (url) =>
+  cleanUrls ? url.replace(/(^|\/)index\.html(?=$|[?#])/, "$1").replace(/\.html(?=$|[?#])/, "") : url;
 
 const FONT_FILES = [
   "300-normal",
@@ -44,8 +51,14 @@ export default function (eleventyConfig) {
   // Absolute URL for canonical, Open Graph and sitemap.
   eleventyConfig.addFilter("absoluteUrl", (path, base) => {
     const cleanBase = String(base).replace(/\/+$/, "");
-    const cleanPath = String(path).startsWith("/") ? path : `/${path}`;
-    return `${cleanBase}${cleanPath}`;
+    const withSlash = String(path).startsWith("/") ? path : `/${path}`;
+    return `${cleanBase}${cleanPath(withSlash)}`;
+  });
+
+  // Interne Links an cleanUrls anpassen, damit kein Klick über einen Redirect läuft.
+  eleventyConfig.addTransform("clean-urls", (content, outputPath) => {
+    if (!cleanUrls || !outputPath?.endsWith(".html")) return content;
+    return content.replace(/href="(\/[^"]*?)"/g, (match, url) => `href="${cleanPath(url)}"`);
   });
 
   eleventyConfig.addGlobalData("buildYear", () => new Date().getFullYear());
