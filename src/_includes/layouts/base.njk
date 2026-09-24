@@ -46,10 +46,10 @@
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-  {%- if not hideCrisisBar %}
-  {% include "partials/crisis-bar.njk" %}
-  {%- endif %}
   {% include "partials/header.njk" %}
+  {%- if not hideAkutTab %}
+  {% include "partials/akut-tab.njk" %}
+  {%- endif %}
 
   <main id="main" tabindex="-1">
     {{ content | safe }}

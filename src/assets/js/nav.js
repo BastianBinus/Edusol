@@ -39,3 +39,28 @@
     if (event.relatedTarget && !menuItem.contains(event.relatedTarget)) setMenu(false);
   });
 })();
+
+// Akut-Seitenreiter: auf-/zuklappen, Escape und Klick ausserhalb schliessen.
+(() => {
+  const tab = document.querySelector("[data-akut-tab]");
+  const button = tab?.querySelector(".akut-tab__toggle");
+  if (!tab || !button) return;
+
+  const setOpen = (open) => {
+    tab.classList.toggle("is-open", open);
+    button.setAttribute("aria-expanded", String(open));
+  };
+
+  button.addEventListener("click", () => setOpen(!tab.classList.contains("is-open")));
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && tab.classList.contains("is-open")) {
+      setOpen(false);
+      button.focus();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (tab.classList.contains("is-open") && !tab.contains(event.target)) setOpen(false);
+  });
+})();

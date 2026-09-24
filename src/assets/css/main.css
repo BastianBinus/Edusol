@@ -420,42 +420,141 @@ main:focus {
   color: var(--c-primary-strong);
 }
 
-/* ---------- Krisenbalken ---------- */
+/* ---------- Akut-Seitenreiter ---------- */
 
-.crisis-bar {
+.akut-tab {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: flex;
+  align-items: stretch;
   background: var(--c-crisis);
   color: #fff;
   font-size: 0.875rem;
+  border-radius: 14px 0 0 14px;
+  box-shadow: 0 8px 28px rgba(26, 58, 80, 0.25);
+  overflow: hidden;
 }
 
-.crisis-bar__inner {
+/* Ohne JavaScript lässt sich der Reiter nicht öffnen – Footer und Seiten verlinken /akut. */
+html:not(.js) .akut-tab {
+  display: none;
+}
+
+.akut-tab__toggle {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 4px 16px;
-  padding-block: 10px;
-}
-
-.crisis-bar__text {
-  font-weight: 300;
-}
-
-.crisis-bar__text strong {
-  font-weight: 600;
-}
-
-.crisis-bar a {
+  gap: 10px;
+  min-width: 44px;
+  padding: 18px 10px;
+  border: 0;
+  background: var(--c-crisis);
   color: #fff;
   font-weight: 600;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
-  display: inline-flex;
-  align-items: center;
-  min-height: 24px;
+  font-size: 0.875rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
 }
 
-.crisis-bar a:hover {
-  border-bottom-color: #fff;
+.akut-tab__toggle:hover {
+  background: var(--c-crisis-strong);
+}
+
+.akut-tab__toggle:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -5px;
+}
+
+.akut-tab__arrow {
+  font-size: 1rem;
+  transition: transform 0.35s ease;
+}
+
+.akut-tab__label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+/* Geschlossen: unsichtbar UND nicht fokussierbar (visibility), mit Ausfahr-Animation */
+.akut-tab__panel {
+  max-width: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: max-width 0.35s ease, opacity 0.25s ease, visibility 0s linear 0.35s;
+}
+
+.akut-tab.is-open .akut-tab__panel {
+  max-width: 320px;
+  opacity: 1;
+  visibility: visible;
+  transition: max-width 0.35s ease, opacity 0.25s ease, visibility 0s;
+}
+
+.akut-tab.is-open .akut-tab__arrow {
+  transform: rotate(180deg);
+}
+
+.akut-tab__content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(280px, 70vw);
+  padding: 20px 22px 20px 12px;
+}
+
+.akut-tab__content p {
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.akut-tab__content .akut-tab__title {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.akut-tab__cta {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  background: #fff;
+  color: var(--c-crisis);
+  font-weight: 600;
+}
+
+.akut-tab__cta:hover {
+  background: var(--c-crisis-tint);
+  color: var(--c-crisis);
+}
+
+.akut-tab__cta:focus-visible {
+  outline-color: #fff;
+}
+
+/* Mobile: ins untere Drittel, damit der Reiter nicht mitten im Lesetext liegt */
+@media (max-width: 47.99rem) {
+  .akut-tab {
+    top: auto;
+    bottom: 96px;
+    transform: none;
+  }
+
+  .akut-tab__toggle {
+    padding: 14px 8px;
+  }
+}
+
+@media print {
+  .akut-tab {
+    display: none;
+  }
 }
 
 /* ---------- Header & Navigation ---------- */
@@ -1904,6 +2003,75 @@ a.akut-call__number:hover {
   font-size: 0.875rem;
   color: var(--c-muted);
   font-weight: 300;
+}
+
+/* ---------- 404 ---------- */
+
+.nf-hero__inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+  padding-block: clamp(56px, 8vw, 112px);
+}
+
+.nf-code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1.5vw, 20px);
+  color: var(--c-heading);
+  font-weight: 700;
+  font-size: clamp(6rem, 16vw, 13rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.nf-code__o {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 0.64em;
+  height: 0.74em;
+  border-radius: 50%;
+  background: var(--c-heading);
+}
+
+.nf-code__owl {
+  display: block;
+  width: 66%;
+  height: 60%;
+  background: var(--c-sky-100);
+  -webkit-mask: url("../img/eulen/silhouette.svg") center / contain no-repeat;
+  mask: url("../img/eulen/silhouette.svg") center / contain no-repeat;
+}
+
+.nf-more {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--c-border);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.nf-more a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  color: var(--c-primary-strong);
+}
+
+.nf-fields__title {
+  min-width: 0;
+  hyphens: manual;
+  overflow-wrap: normal;
+}
+
+.nf-more .nf-more__akut {
+  color: var(--c-crisis);
 }
 
 /* ---------- Rechtstexte ---------- */
