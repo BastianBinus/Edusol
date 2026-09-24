@@ -56,6 +56,18 @@ for (const file of htmlFiles) {
   }
 }
 
+// Zwei aufeinanderfolgende Links mit gleichem Ziel (WAVE: "Redundant link").
+// E-Mail- und Telefonlinks im Fliesstext sind ausgenommen.
+for (const file of htmlFiles) {
+  const html = await readFile(file, "utf8");
+  const hrefs = [...html.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map((m) => m[1]);
+  for (let i = 1; i < hrefs.length; i++) {
+    if (hrefs[i] === hrefs[i - 1] && !/^(mailto|tel):/.test(hrefs[i])) {
+      errors.push(`${path.relative(ROOT, file)}: zwei Links hintereinander auf "${hrefs[i]}" (redundant)`);
+    }
+  }
+}
+
 if (errors.length) {
   console.error(errors.join("\n"));
   console.error(`\n${errors.length} defekte Verweise.`);
