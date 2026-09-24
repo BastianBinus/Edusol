@@ -7,7 +7,7 @@
     "description": "Professionelles Coaching und Supervision für Fachkräfte, Teams und Führungspersonen im Bildungs- und Sozialbereich – auf Augenhöhe und lösungsorientiert.",
     "lead": "Individuelle Begleitung für Fachkräfte, Teams und Führungspersonen – auf Augenhöhe, lösungsorientiert und nachhaltig.",
     "heading": "Unser Ansatz",
-    "body": "Im Coaching begleiten wir Einzelpersonen dabei, ihre beruflichen Ziele zu klären, innere Ressourcen zu aktivieren und konkrete Schritte in die gewünschte Richtung zu gehen. Supervision bietet Fachkräften im pädagogischen und sozialen Bereich einen geschützten Reflexionsraum, um herausfordernde Situationen aus dem Berufsalltag zu verarbeiten und die eigene Professionalität weiterzuentwickeln. Unsere Coaches und Supervisorinnen arbeiten systemisch, ressourcenorientiert und mit viel Erfahrung im Bildungsbereich.",
+    "body": "Im Coaching begleiten wir Einzelpersonen dabei, ihre beruflichen Ziele zu klären, innere Ressourcen zu aktivieren und konkrete Schritte in die gewünschte Richtung zu gehen. Supervision bietet Fachkräften im pädagogischen und sozialen Bereich einen geschützten Reflexionsraum, um herausfordernde Situationen aus dem Berufsalltag zu verarbeiten und die eigene Professionalität weiterzuentwickeln. Unsere Coaches, Supervisorinnen und Supervisoren arbeiten systemisch, ressourcenorientiert und mit viel Erfahrung im Bildungsbereich.",
     "features": [
       {
         "title": "Einzelcoaching",
@@ -35,7 +35,7 @@
     "short": "Fachvorträge",
     "color": "#4a2e5d",
     "description": "Fachvorträge und Keynotes zu aktuellen Bildungsthemen – praxisnah und inspirierend für Schulen, Kollegien, Konferenzen und Fachpublikum.",
-    "lead": "Expertenwissen praxisnah und inspirierend vermittelt – für Schulen, Kollegien, Konferenzen und Fachpublikum.",
+    "lead": "Fachwissen praxisnah und inspirierend vermittelt – für Schulen, Kollegien, Konferenzen und Fachpublikum.",
     "heading": "Wissen, das bewegt",
     "body": "Unsere Fachvorträge verbinden wissenschaftliche Erkenntnisse mit konkreten Praxisbeispielen aus dem Bildungsbereich. Ob schulinterne Weiterbildung, Teamsitzung oder Fachtagung – wir gestalten Impulse, die nachhaltig wirken und zum Weiterdenken anregen. Die Referentinnen und Referenten von EDUSOL bringen langjährige Erfahrung im Bildungs-, Sozial- und Organisationsbereich mit und verstehen es, komplexe Themen verständlich und lebendig zu vermitteln.",
     "features": [
@@ -49,7 +49,7 @@
       },
       {
         "title": "Fachtagungen",
-        "text": "Keynotes und Expertenbeiträge für Konferenzen, Tagungen und Fachveranstaltungen."
+        "text": "Keynotes und Fachbeiträge für Konferenzen, Tagungen und Fachveranstaltungen."
       }
     ],
     "heroWidth": 819,
@@ -97,7 +97,7 @@
     "description": "Beratung und Begleitung für Non-Profit-Organisationen: Organisationsentwicklung, Strategieberatung und Teamentwicklung mit Blick auf das Gemeinwohl.",
     "lead": "Stärkung gemeinnütziger Organisationen durch professionelle Beratung, Organisationsentwicklung und strategische Begleitung.",
     "heading": "Gemeinwohl stärken",
-    "body": "Non-Profit-Organisationen stehen vor besonderen Herausforderungen: begrenzte Ressourcen, hoher Anspruch, viele Stakeholder. EDUSOL begleitet NPO bei der Klärung von Mission und Strategie, der Weiterentwicklung von Organisationsstrukturen sowie bei der Professionalisierung von Teams und Leitungen. Wir verstehen die Eigenlogik gemeinnütziger Arbeit und bringen Erfahrung aus dem Bildungs- und Sozialbereich mit.",
+    "body": "Non-Profit-Organisationen stehen vor besonderen Herausforderungen: begrenzte Ressourcen, hohe Ansprüche, viele Anspruchsgruppen. EDUSOL begleitet NPO bei der Klärung von Mission und Strategie, der Weiterentwicklung von Organisationsstrukturen sowie bei der Professionalisierung von Teams und Leitungen. Wir verstehen die Eigenlogik gemeinnütziger Arbeit und bringen Erfahrung aus dem Bildungs- und Sozialbereich mit.",
     "features": [
       {
         "title": "Organisationsentwicklung",
@@ -105,7 +105,7 @@
       },
       {
         "title": "Strategieberatung",
-        "text": "Mission schärfen, Ziele definieren und Wirkung messbar machen – für mehr Impact."
+        "text": "Mission schärfen, Ziele festlegen und die eigene Wirkung sichtbar und messbar machen."
       },
       {
         "title": "Teamentwicklung",
@@ -127,7 +127,7 @@
     "description": "Schulentwicklung mit EDUSOL: Leitbild, Unterrichtsentwicklung und Begleitung von Schulleitungen – partizipativ, systemisch und nachhaltig.",
     "lead": "Schulen zukunftsfähig gestalten – durch partizipative Prozesse, systemisches Denken und nachhaltige Entwicklungsschritte.",
     "heading": "Schule gemeinsam gestalten",
-    "body": "Schulentwicklung ist dann nachhaltig, wenn sie von allen Beteiligten getragen wird. EDUSOL begleitet Schulen bei der Entwicklung einer gemeinsamen Schulkultur, der Weiterentwicklung von Unterricht und Lehren sowie der strategischen Ausrichtung der gesamten Schule. Wir arbeiten partizipativ, systemisch und immer mit Blick auf die konkreten Bedarfe vor Ort. Aus unserer eigenen Leitungspraxis kennen wir die Rahmenbedingungen schulischer Arbeit.",
+    "body": "Schulentwicklung ist dann nachhaltig, wenn sie von allen Beteiligten getragen wird. EDUSOL begleitet Schulen bei der Entwicklung einer gemeinsamen Schulkultur, der Weiterentwicklung des Unterrichts sowie der strategischen Ausrichtung der gesamten Schule. Wir arbeiten partizipativ, systemisch und immer mit Blick auf die konkreten Bedürfnisse vor Ort. Aus unserer eigenen Leitungspraxis kennen wir die Rahmenbedingungen schulischer Arbeit.",
     "features": [
       {
         "title": "Schulprogrammarbeit",

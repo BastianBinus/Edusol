@@ -120,5 +120,4 @@ Veröffentlicht wird ausschliesslich über Vercel.
 - [ ] Datenschutzerklärung und Impressum rechtlich prüfen lassen
 - [ ] Auftragsbearbeitungsvertrag (DPA) mit Formspree abschliessen
 - [ ] Kontaktformular auf eigene Funktion umstellen (siehe *Kontaktformular*: Postfach `form@edusol.ch` bei Hostpoint)
-- [ ] E-Mail-Anbieter (Hostpoint) in `site.js` → `mailProvider` eintragen
 - [ ] `securityTxtExpires` jährlich erneuern (Kalendereintrag!)
