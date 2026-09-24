@@ -48,6 +48,9 @@ und als `assets/css/site.css` ausgeliefert.
 3. Eigene Domain unter *Settings → Domains* hinzufügen. `SITE_URL` nur setzen, falls die Domain nicht die
    Produktions-Domain des Projekts ist.
 
+**Web Analytics:** In Vercel unter *Analytics → Enable* aktivieren. Das Script `/_vercel/insights/script.js`
+wird nur beim Build auf Vercel eingebunden (cookielos, gleiche Domain, keine CSP-Ausnahmen nötig).
+
 Hinweis: Der Hobby-Plan ist nur für nicht-kommerzielle Nutzung erlaubt – für EDUSOL braucht es Pro.
 Die Datenschutzerklärung nennt beim Build auf Vercel automatisch Vercel als Hoster.
 

@@ -19,7 +19,7 @@ permalink: /datenschutz.html
 
     <h2 id="kurzfassung">Das Wichtigste in Kürze</h2>
     <ul>
-      <li>Wir setzen <strong>keine Cookies</strong>, kein Tracking und keine Analyse-Tools ein.</li>
+      <li>Wir setzen <strong>keine Cookies</strong> und kein Tracking über andere Websites hinweg ein.{% if site.analytics %} Für eine anonyme Reichweitenmessung nutzen wir Vercel Web Analytics ohne Cookies (siehe Ziffer 8).{% endif %}</li>
       <li>Schriften und Skripte liegen auf unserem eigenen Webspace; beim Seitenaufruf werden keine Daten an Google oder andere CDN übertragen.</li>
       <li>Akute Anfragen nehmen wir nur telefonisch entgegen, nicht über ein Formular.</li>
       <li>Personendaten bearbeiten wir nur, wenn ihr uns über das Kontaktformular oder per E-Mail schreibt, sowie in technisch notwendigen Server-Logs unseres Hosting-Anbieters.</li>
@@ -105,11 +105,21 @@ permalink: /datenschutz.html
       anklickt, gelten die Datenschutzbestimmungen des jeweiligen Anbieters.
     </p>
 
-    <h2 id="cookies">8. Cookies, Tracking und externe Ressourcen</h2>
+    <h2 id="cookies">8. Cookies, Reichweitenmessung und externe Ressourcen</h2>
     <p>
-      Diese Website setzt keine Cookies und verwendet weder Analyse- noch Werbedienste. Schriftarten (Poppins),
+      Diese Website setzt keine Cookies und verwendet keine Werbedienste. Schriftarten (Poppins),
       Stylesheets und Skripte werden von unserem eigenen Webspace geladen, nicht von externen Servern.
     </p>
+    {%- if site.analytics %}
+    <p>
+      Um zu verstehen, welche Inhalte genutzt werden, verwenden wir <strong>Vercel Web Analytics</strong> der Vercel Inc.
+      Dabei werden Seitenaufrufe, die zuvor besuchte Seite (Referrer), Land, Browser, Betriebssystem und Gerätetyp erfasst.
+      Es werden keine Cookies gesetzt. Besuchende werden nur über einen Hashwert der Anfrage unterschieden, der täglich
+      neu erzeugt wird; ein Wiedererkennen über mehrere Tage oder über andere Websites ist damit nicht möglich. Wir sehen
+      ausschliesslich zusammengefasste Statistiken, keine einzelnen Personen.
+      Mehr dazu: <a href="https://vercel.com/docs/analytics/privacy-policy" rel="noopener">Datenschutzhinweise zu Vercel Web Analytics</a>.
+    </p>
+    {%- endif %}
 
     <h2 id="ausland">9. Bekanntgabe ins Ausland</h2>
     <p>
