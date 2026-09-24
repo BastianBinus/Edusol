@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {#- GitHub Pages erlaubt keine eigenen HTTP-Header; frame-ancestors und Reporting wirken erst als Header. #}
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formspree.io; form-action https://formspree.io; base-uri 'none'; object-src 'none'; require-trusted-types-for 'script'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; base-uri 'none'; object-src 'none'; require-trusted-types-for 'script'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   {%- set pageTitle = fullTitle or (title + " – " + site.name) %}
   {%- set canonical = page.url | absoluteUrl(site.url) %}
@@ -63,6 +63,10 @@
   {%- if site.analytics %}
   {#- Vercel Web Analytics: cookielos, gleiche Domain, nur auf Vercel vorhanden #}
   <script src="/_vercel/insights/script.js" defer></script>
+  {%- endif %}
+  {%- if site.speedInsights %}
+  {#- Vercel Speed Insights: misst Ladezeiten echter Besuche, cookielos, gleiche Domain #}
+  <script src="/_vercel/speed-insights/script.js" defer></script>
   {%- endif %}
   <script src="/assets/js/nav.js" defer></script>
   {%- if pageScript %}

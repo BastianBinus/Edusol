@@ -51,11 +51,34 @@ und als `assets/css/site.css` ausgeliefert.
 3. Eigene Domain unter *Settings → Domains* hinzufügen. `SITE_URL` nur setzen, falls die Domain nicht die
    Produktions-Domain des Projekts ist.
 
+**Speed Insights (optional, kostenpflichtig):** In Vercel aktivieren und zusätzlich die Umgebungsvariable
+`SPEED_INSIGHTS=true` setzen, dann neu deployen. Script und Datenschutz-Absatz erscheinen erst dann.
+
 **Web Analytics:** In Vercel unter *Analytics → Enable* aktivieren. Das Script `/_vercel/insights/script.js`
 wird nur beim Build auf Vercel eingebunden (cookielos, gleiche Domain, keine CSP-Ausnahmen nötig).
 
 Hinweis: Der Hobby-Plan ist nur für nicht-kommerzielle Nutzung erlaubt – für EDUSOL braucht es Pro.
 Die Datenschutzerklärung nennt beim Build auf Vercel automatisch Vercel als Hoster.
+
+### Kontaktformular (eigene Funktion statt Formspree)
+
+`api/contact.js` (Vercel Function, Region Frankfurt) prüft die Anfrage serverseitig und sendet sie per SMTP
+direkt ins Postfach – ohne Formularanbieter, ohne CAPTCHA. Logik: `lib/contact.js`, Tests: `tests/`.
+
+Aktivieren in Vercel → *Settings → Environment Variables* (Vorlage: `.env.example`):
+
+1. SMTP-Zugang vom E-Mail-Anbieter eintragen: `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`
+   (am besten ein eigenes Konto/App-Passwort nur für die Website).
+2. `MAIL_TO` (Empfänger) und `MAIL_FROM` (Absender, muss zum SMTP-Konto passen) setzen.
+3. `CONTACT_BACKEND=vercel` setzen und neu deployen. Ohne diese Variable bleibt Formspree aktiv.
+4. Empfohlen: in Vercel unter *Firewall → Rules* ein Rate-Limit für `/api/contact`
+   (z. B. 5 Anfragen pro Minute und IP).
+5. Test: Formular auf der Live-Seite absenden; danach Formspree-Konto kündigen.
+
+Schutzmassnahmen: nur `POST`, nur von der eigenen Domain (Origin-Check), Grössenlimit 20 KB, Honeypot,
+Längen- und Formatprüfung, keine Zeilenumbrüche in Mail-Headern, Absender immer die eigene Adresse
+(`Reply-To` = anfragende Person), keine Inhalte in Logs, keine automatische Bestätigungsmail
+(sonst liesse sich die Funktion missbrauchen, um Dritte anzuschreiben).
 
 ### Prüfungen
 

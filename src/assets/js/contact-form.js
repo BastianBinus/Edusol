@@ -111,12 +111,29 @@
         }
         return;
       }
-      // Lehnt der Dienst die AJAX-Übermittlung ab, klassisch absenden.
-      if (response.status !== 422) {
+      // Formspree: Lehnt der Dienst die AJAX-Übermittlung ab, klassisch absenden.
+      const external = new URL(form.action, location.href).origin !== location.origin;
+      if (external && response.status !== 422) {
         HTMLFormElement.prototype.submit.call(form);
         return;
       }
-      setStatus("error", `Die Nachricht konnte nicht gesendet werden. Bitte prüft eure Eingaben oder schreibt direkt an ${fallbackEmail}.`);
+
+      // Eigene Funktion: Feldfehler vom Server direkt an den Feldern anzeigen.
+      const result = await response.json().catch(() => ({}));
+      const fieldErrors = Object.entries(result.errors ?? {})
+        .map(([name, message]) => [form.elements.namedItem(name), message])
+        .filter(([field]) => field instanceof HTMLElement && field.id);
+      if (fieldErrors.length) {
+        const more = document.getElementById("more-fields");
+        fieldErrors.forEach(([field, message]) => {
+          if (more?.contains(field)) more.hidden = false;
+          setError(field, message);
+        });
+        setStatus("error", "Bitte prüft die markierten Angaben.");
+        fieldErrors[0][0].focus();
+        return;
+      }
+      setStatus("error", `Die Nachricht konnte gerade nicht gesendet werden. Bitte versucht es später erneut oder schreibt direkt an ${fallbackEmail}.`);
     } catch {
       setStatus("error", `Die Verbindung ist fehlgeschlagen. Bitte versucht es später erneut oder schreibt direkt an ${fallbackEmail}.`);
     } finally {

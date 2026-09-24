@@ -4,3 +4,6 @@ _site/
 *.log
 test-results/
 .lighthouseci/
+.env
+.env.*
+!.env.example

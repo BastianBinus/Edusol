@@ -69,6 +69,14 @@ permalink: /datenschutz.html
       Nachricht sowie – falls angegeben – das gewählte Thema, die Telefonnummer und die Organisation. Wir verwenden diese Daten ausschliesslich,
       um eure Anfrage zu beantworten und ein allfälliges Angebot zu erstellen.
     </p>
+    {%- if site.contactBackend == "vercel" %}
+    <p>
+      Das Formular wird an eine Funktion auf unserem Webspace bei Vercel (Rechenzentrum Frankfurt) gesendet. Sie prüft
+      die Angaben und leitet sie per verschlüsselter Verbindung als E-Mail an unser Postfach weiter (siehe Ziffer 5).
+      Die Inhalte werden dabei nicht gespeichert und nicht protokolliert; es fallen nur die technisch nötigen Zugriffsdaten
+      an (siehe Ziffer 3). Es werden keine Dienste Dritter wie Formularanbieter oder CAPTCHAs eingesetzt.
+    </p>
+    {%- else %}
     <p>
       Für die Übermittlung nutzen wir den Dienst <strong>Formspree</strong> der Formspree Inc., USA. Formspree empfängt die
       Formulardaten, speichert sie auf Servern in den USA und leitet sie per E-Mail an uns weiter. Dabei wird auch eure
@@ -77,11 +85,18 @@ permalink: /datenschutz.html
       technische Daten wie eure IP-Adresse.
       Mehr dazu: <a href="https://formspree.io/legal/privacy-policy/" rel="noopener">Datenschutzerklärung von Formspree</a>.
     </p>
+    {%- endif %}
     <p>
       Alternativ könnt ihr uns direkt per E-Mail an <a href="mailto:{{ site.email }}">{{ site.email }}</a> schreiben.
     </p>
     <p>
       Die Angaben sind freiwillig. Ohne Name, E-Mail-Adresse und Nachricht können wir eure Anfrage jedoch nicht beantworten.
+    </p>
+    <p id="eigene-angaben">
+      <strong>Was ihr uns mitteilt, entscheidet ihr selbst.</strong> Bitte gebt im Formular und in E-Mails nur an, was wir
+      für eure Anfrage brauchen. Verzichtet insbesondere auf Namen von Schülerinnen und Schülern oder anderen Dritten sowie
+      auf Angaben zur Gesundheit oder andere besonders schützenswerte Personendaten. Solche Details besprechen wir lieber
+      persönlich.
     </p>
 
     <h2 id="email">5. Kontakt per E-Mail</h2>
@@ -120,13 +135,22 @@ permalink: /datenschutz.html
       Mehr dazu: <a href="https://vercel.com/docs/analytics/privacy-policy" rel="noopener">Datenschutzhinweise zu Vercel Web Analytics</a>.
     </p>
     {%- endif %}
+    {%- if site.speedInsights %}
+    <p>
+      Zusätzlich messen wir mit <strong>Vercel Speed Insights</strong>, wie schnell die Seiten bei euch laden
+      (sogenannte Core Web Vitals). Dabei werden Ladezeiten, die aufgerufene Seite, Gerätetyp, Browser und Land erfasst –
+      ohne Cookies und ohne Daten, mit denen sich ein Besuch über mehrere Seiten nachverfolgen oder eine Person
+      identifizieren liesse. Die Werte dienen nur dazu, die Website technisch zu verbessern.
+      Mehr dazu: <a href="https://vercel.com/docs/speed-insights/privacy-policy" rel="noopener">Datenschutzhinweise zu Vercel Speed Insights</a>.
+    </p>
+    {%- endif %}
 
     <h2 id="ausland">9. Bekanntgabe ins Ausland</h2>
     <p>
-      {{ "Vercel" if site.hosting == "vercel" else "GitHub" }} und Formspree haben ihren Sitz in den USA.
+      {{ "Vercel" if site.hosting == "vercel" else "GitHub" }}{% if site.contactBackend != "vercel" %} und Formspree haben ihren{% else %} hat seinen{% endif %} Sitz in den USA.
       Die {{ "Vercel Inc." if site.hosting == "vercel" else "GitHub Inc." }} ist unter dem Swiss-U.S. Data Privacy Framework
-      zertifiziert, das der Bundesrat als angemessenen Datenschutz anerkennt. Für Formspree erfolgt die Bekanntgabe auf
-      Grundlage von Standardvertragsklauseln (Art. 16 Abs. 2 lit. d DSG). Zum Sitz unseres E-Mail-Anbieters siehe Ziffer 5.
+      zertifiziert, das der Bundesrat als angemessenen Datenschutz anerkennt.{% if site.contactBackend != "vercel" %} Für Formspree erfolgt die Bekanntgabe auf
+      Grundlage von Standardvertragsklauseln (Art. 16 Abs. 2 lit. d DSG).{% endif %} Zum Sitz unseres E-Mail-Anbieters siehe Ziffer 5.
     </p>
 
     <h2 id="aufbewahrung">10. Aufbewahrungsdauer</h2>

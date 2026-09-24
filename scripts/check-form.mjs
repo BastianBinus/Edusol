@@ -1,6 +1,11 @@
-// E2E-Test des Kontaktformulars mit simuliertem Formspree-Endpunkt.
+// E2E-Test des Kontaktformulars – je nach Build gegen Formspree (simuliert)
+// oder gegen die eigene Funktion /api/contact (echte Logik im lokalen Testserver).
+import { readFile } from "node:fs/promises";
 import { chromium } from "playwright";
-import { startServer } from "./serve.mjs";
+import { startServer, sentMails } from "./serve.mjs";
+
+const html = await readFile("_site/kontakt.html", "utf8");
+const backend = /action="[^"]*\/api\/contact"/.test(html) ? "vercel" : "formspree";
 
 const { server, base } = await startServer();
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined });
@@ -45,21 +50,67 @@ async function scenario(name, status) {
   return { page, requests };
 }
 
+if (backend === "vercel") {
+  // Erfolg über die echte Funktion
+  {
+    const page = await browser.newPage();
+    await page.goto(`${base}/kontakt.html?thema=npo`);
+    await page.fill("#name", "Max Muster");
+    await page.fill("#email", "max@schule.ch");
+    await page.fill("#nachricht", "Test über die eigene Funktion");
+    await Promise.all([page.waitForSelector("#form-success", { state: "visible" }), page.click('button[type="submit"]')]);
+    const mail = sentMails.at(-1);
+    expect(mail?.replyTo?.address === "max@schule.ch", "API: Mail nicht mit Reply-To erzeugt");
+    expect(/Thema: NPO-Beratung/.test(mail?.text ?? ""), "API: Thema fehlt in der Mail");
+    await page.close();
+  }
+  // Serverseitiger Feldfehler (Telefon wird im Browser nicht geprüft)
+  {
+    const page = await browser.newPage();
+    await page.goto(`${base}/kontakt.html`);
+    await page.fill("#name", "Max Muster");
+    await page.fill("#email", "max@schule.ch");
+    await page.fill("#nachricht", "Test");
+    await page.click("#more-toggle");
+    await page.fill("#telefon", "abc<script>");
+    const before = sentMails.length;
+    await page.click('button[type="submit"]');
+    await page.waitForSelector("#telefon-error", { state: "visible" });
+    expect((await page.getAttribute("#telefon", "aria-invalid")) === "true", "API 422: Feld nicht als ungültig markiert");
+    expect((await page.evaluate(() => document.activeElement.id)) === "telefon", "API 422: Fokus nicht auf dem Fehlerfeld");
+    expect(sentMails.length === before, "API 422: trotzdem gesendet");
+    await page.close();
+  }
+  // Ohne JavaScript: normales Absenden, Weiterleitung auf /danke
+  {
+    const context = await browser.newContext({ javaScriptEnabled: false });
+    const page = await context.newPage();
+    await page.goto(`${base}/kontakt.html`);
+    await page.fill("#name", "Ohne JS");
+    await page.fill("#email", "nojs@schule.ch");
+    await page.fill("#nachricht", "Test ohne JavaScript");
+    await Promise.all([page.waitForURL(/\/danke/), page.click('button[type="submit"]')]);
+    expect(sentMails.at(-1)?.replyTo?.address === "nojs@schule.ch", "API ohne JS: nicht gesendet");
+    await context.close();
+  }
+} else {
 {
   const { page, requests } = await scenario("Erfolg", 200);
   expect(requests[0] === "application/json", "Erfolg: kein JSON-Request");
   expect(await page.isVisible("#form-success"), "Erfolg: keine Bestätigung");
   expect(await page.isHidden("#contact-form"), "Erfolg: Formular noch sichtbar");
 }
-{
+  {
   const { page } = await scenario("Validierungsfehler", 422);
   expect((await page.textContent("#form-status")).includes("nicht gesendet"), "422: keine Fehlermeldung");
   expect((await page.inputValue("#nachricht")) === "Test", "422: Eingaben gelöscht");
 }
-{
+  {
   const { page, requests } = await scenario("Fallback", 403);
   expect(requests.length === 2, "403: kein nativer POST als Fallback");
   expect(page.url().startsWith("https://formspree.io/"), "403: keine Weiterleitung zu Formspree");
+}
+
 }
 
 await browser.close();
@@ -69,4 +120,4 @@ if (failures.length) {
   console.error(failures.map((f) => `✖ ${f}`).join("\n"));
   process.exit(1);
 }
-console.log("Formular-E2E ok: Validierung, Erfolg, Fehler und Fallback.");
+console.log(`Formular-E2E ok (${backend}): Validierung, Erfolg, Fehler und ${backend === "vercel" ? "Versand ohne JavaScript" : "Fallback"}.`);
