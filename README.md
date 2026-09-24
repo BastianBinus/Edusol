@@ -1,6 +1,6 @@
 # EDUSOL Website
 
-Statische Website von EDUSOL, gebaut mit [Eleventy](https://www.11ty.dev/) und ausgeliefert über GitHub Pages.
+Statische Website von EDUSOL, gebaut mit [Eleventy](https://www.11ty.dev/) und ausgeliefert über Vercel.
 
 ## Entwicklung
 
@@ -51,14 +51,12 @@ und als `assets/css/site.css` ausgeliefert.
 Hinweis: Der Hobby-Plan ist nur für nicht-kommerzielle Nutzung erlaubt – für EDUSOL braucht es Pro.
 Die Datenschutzerklärung nennt beim Build auf Vercel automatisch Vercel als Hoster.
 
-### GitHub Pages (bisher)
+### Prüfungen
 
-Jeder Push auf `main` baut, prüft und deployt über `.github/workflows/deploy.yml`.
-Basis-URL und Pfad-Präfix kommen automatisch aus `actions/configure-pages` –
-bei einer eigenen Domain muss am Code nichts geändert werden.
+`.github/workflows/ci.yml` prüft jeden Push und Pull Request (Build, HTML, Links, axe, Formular, Lighthouse).
+Veröffentlicht wird ausschliesslich über Vercel.
 
-**Rollback:** Commit auf `main` reverten oder unter *Actions* den letzten funktionierenden
-„Build & Deploy“-Lauf erneut ausführen.
+**Rollback:** In Vercel unter *Deployments* ein früheres Deployment „Promote to Production“ – oder den Commit auf `main` reverten.
 
 ## Vor dem Go-live
 
