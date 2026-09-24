@@ -18,6 +18,8 @@ export default {
   noindex: process.env.SITE_NOINDEX === "true" || process.env.VERCEL_ENV === "preview",
   // Bestimmt den Hosting-Abschnitt der Datenschutzerklärung.
   hosting: onVercel ? "vercel" : "github-pages",
+  // Vercel Web Analytics (cookielos) – das Script existiert nur auf Vercel.
+  analytics: onVercel,
   email: "info@edusol.ch",
   securityEmail: "info@edusol.ch",
   phone: "",
