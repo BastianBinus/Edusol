@@ -37,13 +37,13 @@ export default {
   formspreeAction: "https://formspree.io/f/xvzdelpq",
   // Anbieter = Verein (Art. 60 ff. ZGB). Name exakt wie in den Statuten.
   owner: {
-    name: "[Platzhalter – Vereinsname gemäss Statuten, z. B. Verein EDUSOL]",
+    name: "Edusol",
     legalForm: "Verein nach Art. 60 ff. ZGB",
-    seat: "[Platzhalter – Sitz des Vereins gemäss Statuten]",
-    street: "[Platzhalter – Strasse und Hausnummer]",
-    city: "[Platzhalter – PLZ und Ort]",
+    seat: "Aesch",
+    street: "Neumattstrasse 29a",
+    city: "4147 Aesch",
     country: "Schweiz",
-    representatives: "[Platzhalter – Vorname Name, Funktion (z. B. Präsidentin)]",
+    representatives: "Dominik Bucher, Präsident",
     // Nur falls der Verein im Handelsregister eingetragen ist
     uid: "",
   },
