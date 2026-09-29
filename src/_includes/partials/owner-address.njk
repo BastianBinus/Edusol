@@ -5,5 +5,5 @@
   {{ site.owner.city }}<br>
   {{ site.owner.country }}<br>
   E-Mail: <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-  {%- if site.phone %}<br>Telefon: <a href="tel:{{ site.phone | replace(' ', '') }}">{{ site.phone }}</a>{% endif %}
+  {%- if site.phone %}<br>Telefon: <a href="tel:{{ site.phone | replace(' ', '') }}">{{ site.phone | replace(' ', '&nbsp;') | safe }}</a>{% endif %}
 </address>

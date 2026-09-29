@@ -7,7 +7,7 @@ permalink: /akut.html
 hideAkutTab: true
 hideCta: true
 ---
-{%- set phoneDisplay = site.akutPhone or "[Platzhalter – Telefonnummer für Akut-Hilfe]" %}
+{%- set phoneDisplay = (site.akutPhone | replace(" ", "&nbsp;") | safe) if site.akutPhone else "[Platzhalter – Telefonnummer für Akut-Hilfe]" %}
 <section class="akut-hero on-dark">
   <div class="container akut-hero__inner">
     <div class="stack stack-md">
@@ -24,7 +24,7 @@ hideCta: true
         <p class="akut-call__number">{{ phoneDisplay }}</p>
         <p class="akut-call__hours">Erreichbar {{ site.akutHours }}.</p>
         {%- if site.akutPhone %}
-        <a class="btn btn--crisis akut-call__btn" href="tel:{{ site.akutPhone | replace(' ', '') }}">Jetzt anrufen</a>
+        <a class="btn btn--crisis akut-call__btn" href="tel:{{ site.akutPhone | replace(' ', '') }}">Jetzt&nbsp;anrufen</a>
         {%- endif %}
       </div>
       <div class="emergency" role="note" aria-labelledby="notruf-title">
