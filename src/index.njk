@@ -43,23 +43,12 @@ permalink: /
   </div>
 </section>
 
-<section class="section section--white home-stories" aria-labelledby="stories-title">
-  <div class="container stack stack-lg">
-    <div class="home-stories__head">
-      <h2 class="h-small" id="stories-title">Einblicke</h2>
-      <a class="link-arrow" href="/einblicke.html">Alle ansehen <span aria-hidden="true">→</span></a>
+<section class="section section--white home-news" aria-labelledby="news-title">
+  <div class="container home-news__inner">
+    <div class="stack stack-sm">
+      <h2 class="h-small" id="news-title">Aktuelles aus unserer Arbeit</h2>
+      <p class="subtitle">Projekte, Impulse und Neuigkeiten teilen wir auf LinkedIn.</p>
     </div>
-    <ul class="story-grid scroller">
-      {%- for s in stories %}
-      {%- set f = s.field | field(fields) %}
-      <li class="theme-{{ f.slug }}">
-        <a class="story" href="/{{ f.slug }}.html">
-          <span class="chip-field"><img src="/assets/img/eulen/{{ f.slug }}.svg" width="24" height="22" alt="">{{ f.menuTitle }}</span>
-          <h3>{{ s.title }}</h3>
-          <p>{{ s.text }}</p>
-        </a>
-      </li>
-      {%- endfor %}
-    </ul>
+    <a class="btn btn--outline" href="{{ site.linkedin }}" rel="noopener" target="_blank">EDUSOL auf LinkedIn<span class="visually-hidden"> (öffnet in neuem Tab)</span></a>
   </div>
 </section>

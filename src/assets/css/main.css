@@ -1265,44 +1265,6 @@ a.chip-field:hover {
   height: 36px;
 }
 
-/* ---------- Stories ---------- */
-
-.story-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-  gap: 20px;
-}
-
-.story {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  height: 100%;
-  padding: 28px;
-  border-radius: var(--radius-lg);
-  background: var(--c-soft);
-  color: var(--c-text);
-  transition: box-shadow 0.15s ease;
-}
-
-.story:hover {
-  box-shadow: 0 12px 30px rgba(26, 58, 80, 0.1);
-  color: var(--c-text);
-}
-
-.story h2,
-.story h3 {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--c-heading);
-}
-
-.story p {
-  font-size: 0.9375rem;
-  color: var(--c-muted);
-  font-weight: 300;
-  line-height: 1.75;
-}
 
 /* ---------- CTA-Band ---------- */
 
@@ -2227,19 +2189,12 @@ textarea.input {
   background: #fff;
 }
 
-.home-stories__head {
+.home-news__inner {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  gap: 12px;
-}
-
-.story__more {
-  margin-top: auto;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--c-primary-strong);
+  gap: 20px;
 }
 
 .legal-summary {
@@ -2340,7 +2295,7 @@ textarea.input {
     min-height: 52px;
   }
 
-  /* Horizontal wischbare Listen (Finder, Einblicke, weitere Felder) */
+  /* Horizontal wischbare Listen (weitere Felder) */
   ul.scroller {
     display: flex;
     gap: 12px;
@@ -2732,25 +2687,6 @@ textarea.input {
 
   .field-list {
     padding-block: 20px 40px;
-  }
-
-  .story-grid.scroller > li {
-    width: 280px;
-  }
-
-  .story {
-    gap: 12px;
-    padding: 22px;
-  }
-
-  .story h2,
-  .story h3 {
-    font-size: 1.0625rem;
-  }
-
-  .story p {
-    font-size: 0.875rem;
-    line-height: 1.7;
   }
 
   /* ---------- CTA & Footer ---------- */
