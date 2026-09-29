@@ -979,6 +979,15 @@ html:not(.js) .akut-tab {
   height: 28px;
 }
 
+.hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 60%;
+  border-radius: 24px;
+}
+
 .photo-slot--hero {
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.45);
@@ -1123,6 +1132,21 @@ a.chip-field:hover {
   max-width: 100%;
   object-fit: contain;
   object-position: left center;
+}
+
+/* Bild zwischen Hero und Inhalt: ragt halb in den getönten Hero hinein */
+.field-photo-wrap {
+  margin-top: clamp(-64px, -5vw, -32px);
+  position: relative;
+}
+
+.field-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 21 / 8;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
 }
 
 .field-hero__teaser {
@@ -2734,6 +2758,14 @@ textarea.input {
   .field-hero__inner {
     gap: 20px;
     padding-block: 8px 32px;
+  }
+
+  .field-photo-wrap {
+    margin-top: -16px;
+  }
+
+  .field-photo {
+    aspect-ratio: 16 / 9;
   }
 
   .breadcrumb li:not(.breadcrumb__back) {
