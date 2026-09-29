@@ -27,7 +27,7 @@ export default {
   securityEmail: "info@edusol.ch",
   phone: "",
   // Akut-Hilfe: nur telefonisch, zu Bürozeiten. Leer = Platzhalter wird angezeigt.
-  akutPhone: "",
+  akutPhone: "+41 79 547 36 81",
   akutHours: "Montag bis Freitag, 8–17 Uhr",
   akutHoursShort: "Mo–Fr 8–17 Uhr",
   whatsapp: "",
@@ -37,19 +37,19 @@ export default {
   formspreeAction: "https://formspree.io/f/xvzdelpq",
   // Anbieter = Verein (Art. 60 ff. ZGB). Name exakt wie in den Statuten.
   owner: {
-    name: "[Platzhalter – Vereinsname gemäss Statuten, z. B. Verein EDUSOL]",
+    name: "EDUSOL",
     legalForm: "Verein nach Art. 60 ff. ZGB",
-    seat: "[Platzhalter – Sitz des Vereins gemäss Statuten]",
-    street: "[Platzhalter – Strasse und Hausnummer]",
-    city: "[Platzhalter – PLZ und Ort]",
+    seat: "Aesch BL",
+    street: "Neumattstrasse 29a",
+    city: "4147 Aesch BL",
     country: "Schweiz",
-    representatives: "[Platzhalter – Vorname Name, Funktion (z. B. Präsidentin)]",
+    representatives: "Dominik Bucher, Präsident",
     // Nur falls der Verein im Handelsregister eingetragen ist
     uid: "",
   },
   // Anbieter des Postfachs info@… (Name, Sitz); nötig für die Datenschutzerklärung
   mailProvider: "Hostpoint AG, Neue Jonastrasse 60, 8640 Rapperswil-Jona, Schweiz",
-  legalUpdated: "2026-09-24",
+  legalUpdated: "2026-09-29",
   // RFC 9116: höchstens ein Jahr in die Zukunft. Erneuerung im Kalender eintragen!
   securityTxtExpires: "2027-09-23T23:59:59.000Z",
   themeColor: "#dce8f2",

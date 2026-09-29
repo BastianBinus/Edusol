@@ -69,5 +69,12 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/einblicke",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }

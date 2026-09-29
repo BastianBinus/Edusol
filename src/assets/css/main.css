@@ -964,6 +964,16 @@ html:not(.js) .akut-tab {
   padding: 12px;
 }
 
+/* Echte Teamfotos: füllen den Rahmen, Gesicht bleibt auch im Querformat (mobil) sichtbar */
+.team-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 25%;
+  border-radius: var(--radius-lg);
+}
+
 .photo-slot svg {
   width: 28px;
   height: 28px;
@@ -972,56 +982,6 @@ html:not(.js) .akut-tab {
 .photo-slot--hero {
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.45);
-}
-
-/* ---------- Finder ---------- */
-
-.finder {
-  border-bottom: 1px solid var(--c-border);
-  padding-block: clamp(40px, 5vw, 64px);
-}
-
-.finder__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-  gap: 12px;
-}
-
-.finder__card {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  height: 100%;
-  padding: 18px;
-  border-radius: var(--radius-md);
-  border: 1.5px solid var(--c-sky-100);
-  background: #fff;
-  color: var(--c-text);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
-}
-
-.finder__card:hover {
-  border-color: var(--c-primary);
-  box-shadow: var(--shadow-sm);
-  transform: translateY(-2px);
-  color: var(--c-text);
-}
-
-.finder__card img {
-  width: 40px;
-  height: 36px;
-}
-
-.finder__label {
-  flex: 1;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  line-height: 1.4;
-}
-
-.finder__field {
-  font-size: 0.8125rem;
-  font-weight: 600;
 }
 
 /* ---------- Wirkungsfeld-Karten ---------- */
@@ -1315,44 +1275,6 @@ a.chip-field:hover {
   height: 36px;
 }
 
-/* ---------- Stories ---------- */
-
-.story-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-  gap: 20px;
-}
-
-.story {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  height: 100%;
-  padding: 28px;
-  border-radius: var(--radius-lg);
-  background: var(--c-soft);
-  color: var(--c-text);
-  transition: box-shadow 0.15s ease;
-}
-
-.story:hover {
-  box-shadow: 0 12px 30px rgba(26, 58, 80, 0.1);
-  color: var(--c-text);
-}
-
-.story h2,
-.story h3 {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--c-heading);
-}
-
-.story p {
-  font-size: 0.9375rem;
-  color: var(--c-muted);
-  font-weight: 300;
-  line-height: 1.75;
-}
 
 /* ---------- CTA-Band ---------- */
 
@@ -2277,19 +2199,12 @@ textarea.input {
   background: #fff;
 }
 
-.home-stories__head {
+.home-news__inner {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  gap: 12px;
-}
-
-.story__more {
-  margin-top: auto;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--c-primary-strong);
+  gap: 20px;
 }
 
 .legal-summary {
@@ -2390,7 +2305,7 @@ textarea.input {
     min-height: 52px;
   }
 
-  /* Horizontal wischbare Listen (Finder, Einblicke, weitere Felder) */
+  /* Horizontal wischbare Listen (weitere Felder) */
   ul.scroller {
     display: flex;
     gap: 12px;
@@ -2721,18 +2636,6 @@ textarea.input {
     font-size: 0.8125rem;
   }
 
-  .finder {
-    padding-block: 36px 32px;
-  }
-
-  .finder .h-small {
-    font-size: 1.375rem;
-  }
-
-  .finder__grid > li {
-    width: 228px;
-  }
-
   .field-grid {
     gap: 12px;
   }
@@ -2794,25 +2697,6 @@ textarea.input {
 
   .field-list {
     padding-block: 20px 40px;
-  }
-
-  .story-grid.scroller > li {
-    width: 280px;
-  }
-
-  .story {
-    gap: 12px;
-    padding: 22px;
-  }
-
-  .story h2,
-  .story h3 {
-    font-size: 1.0625rem;
-  }
-
-  .story p {
-    font-size: 0.875rem;
-    line-height: 1.7;
   }
 
   /* ---------- CTA & Footer ---------- */
@@ -3562,7 +3446,6 @@ textarea.input {
     scroll-behavior: auto !important;
   }
 
-  .finder__card:hover,
   .field-card:hover {
     transform: none;
   }
