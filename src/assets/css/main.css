@@ -864,6 +864,20 @@ html:not(.js) .akut-tab {
   padding-block: clamp(48px, 6vw, 80px) clamp(40px, 5vw, 56px);
 }
 
+/* Seiten-Hero mit Bild daneben (z. B. freigestellte Eule auf «Wir sind EDUSOL») */
+.page-hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(24px, 5vw, 64px);
+}
+
+.hero-owl {
+  width: clamp(160px, 22vw, 300px);
+  height: auto;
+  filter: drop-shadow(0 14px 18px rgba(26, 58, 80, 0.18));
+}
+
 .hero--home .hero__inner {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
@@ -1144,7 +1158,7 @@ a.chip-field:hover {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 21 / 8;
+  aspect-ratio: 2 / 1;
   object-fit: cover;
   border-radius: var(--radius-lg);
 }
@@ -1498,27 +1512,6 @@ a.chip-field:hover {
 }
 
 /* ---------- EDU / SOL ---------- */
-
-.promise-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px 40px;
-}
-
-.promise-head .promise-title {
-  flex: 1 1 18rem;
-  min-width: 0;
-}
-
-.promise-owl {
-  width: clamp(140px, 18vw, 220px);
-  height: auto;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: var(--radius-lg);
-}
 
 .promise-title {
   font-size: clamp(1.4rem, 3vw, 1.9rem);
@@ -2296,6 +2289,14 @@ textarea.input {
     padding-block: 32px 28px;
   }
 
+  .page-hero-split {
+    gap: 16px;
+  }
+
+  .hero-owl {
+    width: 96px;
+  }
+
   .cluster--stack {
     flex-direction: column;
     align-items: stretch;
@@ -2785,10 +2786,6 @@ textarea.input {
     margin-top: -16px;
   }
 
-  .field-photo {
-    aspect-ratio: 16 / 9;
-  }
-
   .breadcrumb li:not(.breadcrumb__back) {
     display: none;
   }
@@ -3009,16 +3006,6 @@ textarea.input {
 
   .promise-title {
     font-size: 1.375rem;
-  }
-
-  .promise-head {
-    flex-wrap: nowrap;
-    gap: 16px;
-  }
-
-  .promise-owl {
-    width: 96px;
-    flex-shrink: 0;
   }
 
   .brand-card {
