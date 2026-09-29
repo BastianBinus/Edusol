@@ -27,7 +27,8 @@
     "cardTitle": "Coaching & Super­vision",
     "seoTitle": "Coaching & Supervision für Schulen und Teams – EDUSOL",
     "tint": "#e3f0ea",
-    "menuTitle": "Coaching & Supervision"
+    "menuTitle": "Coaching & Supervision",
+    "photoAlt": "Eine Lego-Figur schaut durch eine Lupe"
   },
   {
     "slug": "fachvortraege",
@@ -57,7 +58,8 @@
     "cardTitle": "Fach­vorträge",
     "seoTitle": "Fachvorträge und Weiterbildung für Schulen – EDUSOL",
     "tint": "#efe8f3",
-    "menuTitle": "Fachvorträge"
+    "menuTitle": "Fachvorträge",
+    "photoAlt": "Eine Lego-Figur in einem kleinen Fahrzeug hält ein Funkgerät"
   },
   {
     "slug": "krisenmanagement",
@@ -87,7 +89,8 @@
     "cardTitle": "Krisen­management",
     "seoTitle": "Krisenmanagement für Schulen und Organisationen – EDUSOL",
     "tint": "#e6eaf4",
-    "menuTitle": "Krisenmanagement"
+    "menuTitle": "Krisenmanagement",
+    "photoAlt": "Eine besorgte Lego-Figur sitzt allein da"
   },
   {
     "slug": "npo",
@@ -117,7 +120,8 @@
     "cardTitle": "NPO-Beratung",
     "seoTitle": "NPO-Beratung: Organisation und Strategie – EDUSOL",
     "tint": "#f3ebe3",
-    "menuTitle": "NPO"
+    "menuTitle": "NPO",
+    "photoAlt": "Drei Lego-Figuren tragen gemeinsam einen langen Stab"
   },
   {
     "slug": "schulentwicklung",
@@ -147,6 +151,7 @@
     "cardTitle": "Schul­entwicklung",
     "seoTitle": "Schulentwicklung: Leitbild, Unterricht, Führung – EDUSOL",
     "tint": "#f6e6e8",
-    "menuTitle": "Schulentwicklung"
+    "menuTitle": "Schulentwicklung",
+    "photoAlt": "Ein Haufen bunter Bausteine, aus dem etwas Neues entstehen kann"
   }
 ]

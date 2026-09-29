@@ -1134,6 +1134,21 @@ a.chip-field:hover {
   object-position: left center;
 }
 
+/* Bild zwischen Hero und Inhalt: ragt halb in den getönten Hero hinein */
+.field-photo-wrap {
+  margin-top: clamp(-64px, -5vw, -32px);
+  position: relative;
+}
+
+.field-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 21 / 8;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
 .field-hero__teaser {
   font-size: 1.2rem;
   color: var(--c-heading);
@@ -2743,6 +2758,14 @@ textarea.input {
   .field-hero__inner {
     gap: 20px;
     padding-block: 8px 32px;
+  }
+
+  .field-photo-wrap {
+    margin-top: -16px;
+  }
+
+  .field-photo {
+    aspect-ratio: 16 / 9;
   }
 
   .breadcrumb li:not(.breadcrumb__back) {
