@@ -1499,6 +1499,27 @@ a.chip-field:hover {
 
 /* ---------- EDU / SOL ---------- */
 
+.promise-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px 40px;
+}
+
+.promise-head .promise-title {
+  flex: 1 1 18rem;
+  min-width: 0;
+}
+
+.promise-owl {
+  width: clamp(140px, 18vw, 220px);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
 .promise-title {
   font-size: clamp(1.4rem, 3vw, 1.9rem);
   font-weight: 600;
@@ -2988,6 +3009,16 @@ textarea.input {
 
   .promise-title {
     font-size: 1.375rem;
+  }
+
+  .promise-head {
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+
+  .promise-owl {
+    width: 96px;
+    flex-shrink: 0;
   }
 
   .brand-card {
