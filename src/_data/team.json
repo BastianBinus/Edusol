@@ -1,15 +1,30 @@
 [
   {
+    "slug": "dominik",
+    "name": "Dominik",
+    "role": "[Platzhalter – Funktion, z. B. Institutionsleiter]",
+    "fields": [
+      "npo",
+      "schulentwicklung"
+    ],
+    "intro": "[Platzhalter – Kurze Vorstellung in Ich-Form: wer ich bin, woher ich komme und was mich antreibt. 2–3 Sätze.]",
+    "experience": "[Platzhalter – Berufliche Erfahrung, Ausbildungen, Zertifizierungen.]",
+    "why": "[Platzhalter – Was mich mit EDUSOL verbindet, in einem Satz.]",
+    "linkedin": ""
+  },
+  {
     "slug": "patrick",
     "name": "Patrick",
     "role": "[Platzhalter – Funktion, z. B. Schulleiter]",
     "fields": [
       "schulentwicklung",
-      "fachvortraege"
+      "fachvortraege",
+      "coaching-supervision"
     ],
     "intro": "[Platzhalter – Kurze Vorstellung in Ich-Form: wer ich bin, woher ich komme und was mich antreibt. 2–3 Sätze.]",
     "experience": "[Platzhalter – Berufliche Erfahrung, Ausbildungen, Zertifizierungen.]",
-    "why": "[Platzhalter – Was mich mit EDUSOL verbindet, in einem Satz.]"
+    "why": "[Platzhalter – Was mich mit EDUSOL verbindet, in einem Satz.]",
+    "linkedin": ""
   },
   {
     "slug": "susann",
@@ -21,19 +36,8 @@
     ],
     "intro": "[Platzhalter – Kurze Vorstellung in Ich-Form: wer ich bin, woher ich komme und was mich antreibt. 2–3 Sätze.]",
     "experience": "[Platzhalter – Berufliche Erfahrung, Ausbildungen, Zertifizierungen.]",
-    "why": "[Platzhalter – Was mich mit EDUSOL verbindet, in einem Satz.]"
-  },
-  {
-    "slug": "dominik",
-    "name": "Dominik",
-    "role": "[Platzhalter – Funktion, z. B. Institutionsleiter]",
-    "fields": [
-      "npo",
-      "schulentwicklung"
-    ],
-    "intro": "[Platzhalter – Kurze Vorstellung in Ich-Form: wer ich bin, woher ich komme und was mich antreibt. 2–3 Sätze.]",
-    "experience": "[Platzhalter – Berufliche Erfahrung, Ausbildungen, Zertifizierungen.]",
-    "why": "[Platzhalter – Was mich mit EDUSOL verbindet, in einem Satz.]"
+    "why": "[Platzhalter – Was mich mit EDUSOL verbindet, in einem Satz.]",
+    "linkedin": ""
   },
   {
     "slug": "thorsten",
@@ -45,6 +49,7 @@
     ],
     "intro": "Seit 2014 leite ich eine soziale Institution mit rund 210 Mitarbeitenden. Wir begleiten Kinder, Jugendliche und Erwachsene, insbesondere Menschen mit psychischen Belastungen. Mein Anliegen ist, dass Organisationen auch in anspruchsvollen Phasen handlungsfähig bleiben, sei es bei Fusionen oder in der Weiterentwicklung ihrer Angebote.",
     "experience": "Gesamtleitung einer Institution der Kinder- und Jugendhilfe sowie des Erwachsenenbereichs. Erfahrung in Konzeptentwicklung, Verhandlungen mit Behörden und Verbandsarbeit, unter anderem als Vizepräsident von SUbB (Soziale Unternehmen beider Basel) und Co-Präsident von Prikop. Aus- und Weiterbildungen unter anderem in systemischer Therapie, MAS Sozialmanagement und CAS Transformation der Arbeitswelt und Selbstführung.",
-    "why": "[Platzhalter – Was mich mit EDUSOL verbindet, in einem Satz.]"
+    "why": "[Platzhalter – Was mich mit EDUSOL verbindet, in einem Satz.]",
+    "linkedin": ""
   }
 ]

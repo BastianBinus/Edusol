@@ -32,9 +32,10 @@ pageScript: /assets/js/tabs.js
       {%- endfor %}
     </ul>
     <div class="grid-2">
-      <p class="prose">Patrick, Susann, Dominik und Thorsten verbindet mehr als nur ein Projekt. Uns verbindet eine gemeinsame Haltung: Wissen, das wirkt, gehört weitergegeben. Erfahrungen, die tragen, dürfen nicht in Schubladen verschwinden.</p>
+      <p class="prose">Dominik, Patrick, Susann und Thorsten verbindet mehr als nur ein Projekt. Uns verbindet eine gemeinsame Haltung: Wissen, das wirkt, gehört weitergegeben. Erfahrungen, die tragen, dürfen nicht in Schubladen verschwinden.</p>
       <p class="prose">Wir arbeiten täglich in den Bereichen, über die wir sprechen – in Schulleitung, Institutionsleitung und Krisenarbeit. Wir bringen keine Theorien von aussen, sondern Lösungen von innen.</p>
     </div>
+    <p class="prose"><strong>Vertraulichkeit:</strong> Datenschutz und Vertraulichkeit haben bei uns höchste Priorität. Wir verpflichten uns zur Verschwiegenheit und gehen mit allen Informationen sorgfältig und vertraulich um.</p>
   </div>
 </section>
 
@@ -91,6 +92,9 @@ pageScript: /assets/js/tabs.js
         <div class="profile__actions">
           <a class="btn btn--primary" href="/kontakt.html">Mit {{ m.name }} sprechen</a>
           <a class="btn btn--outline" href="#profil-{{ next.slug }}" data-tab-link="{{ next.slug }}">Weiter: {{ next.name }} <span aria-hidden="true">→</span></a>
+          {%- if m.linkedin %}
+          <a class="link-arrow" href="{{ m.linkedin }}" rel="noopener" target="_blank">{{ m.name }} auf LinkedIn<span class="visually-hidden"> (öffnet in neuem Tab)</span></a>
+          {%- endif %}
         </div>
       </div>
     </div>
