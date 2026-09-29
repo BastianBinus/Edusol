@@ -49,7 +49,7 @@ export default {
   },
   // Anbieter des Postfachs info@… (Name, Sitz); nötig für die Datenschutzerklärung
   mailProvider: "Hostpoint AG, Neue Jonastrasse 60, 8640 Rapperswil-Jona, Schweiz",
-  legalUpdated: "2026-09-24",
+  legalUpdated: "2026-09-29",
   // RFC 9116: höchstens ein Jahr in die Zukunft. Erneuerung im Kalender eintragen!
   securityTxtExpires: "2027-09-23T23:59:59.000Z",
   themeColor: "#dce8f2",
