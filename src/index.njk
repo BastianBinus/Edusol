@@ -33,32 +33,11 @@ permalink: /
   </div>
 </section>
 
-<section class="finder" aria-labelledby="finder-title">
-  <div class="container stack stack-lg">
-    <div class="stack stack-sm">
-      <h2 class="h-small" id="finder-title">Wo steht ihr gerade?</h2>
-      <p class="subtitle">Wählt, was am ehesten zutrifft – wir zeigen euch den passenden Weg.</p>
-    </div>
-    <ul class="finder__grid scroller">
-      {%- for q in finder %}
-      {%- set f = q.field | field(fields) %}
-      <li class="theme-{{ f.slug }}">
-        <a class="finder__card" href="/{{ f.slug }}.html">
-          <img src="/assets/img/eulen/{{ f.slug }}.svg" width="40" height="36" alt="">
-          <span class="finder__label">{{ q.label }}</span>
-          <span class="finder__field accent-text">{{ f.menuTitle }} <span aria-hidden="true">→</span></span>
-        </a>
-      </li>
-      {%- endfor %}
-    </ul>
-  </div>
-</section>
-
 <section class="section section--soft" id="wirkungsfelder" aria-labelledby="felder-title">
   <div class="container stack stack-xl">
     <div class="stack stack-sm">
       <h2 class="h-section" id="felder-title">Unsere Wirkungsfelder</h2>
-      <p class="subtitle">Was wir tun – und wie wir wirken.</p>
+      <p class="subtitle">Wo steht ihr gerade? Wählt das Feld, das am ehesten passt.</p>
     </div>
     {% include "partials/field-cards.njk" %}
   </div>
