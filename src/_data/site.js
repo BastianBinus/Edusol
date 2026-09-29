@@ -31,7 +31,7 @@ export default {
   akutHours: "Montag bis Freitag, 8–17 Uhr",
   akutHoursShort: "Mo–Fr 8–17 Uhr",
   whatsapp: "",
-  linkedin: "https://www.linkedin.com/company/edusol",
+  linkedin: "https://www.linkedin.com/company/146647656/",
   // Kontaktformular: "vercel" = eigene Funktion /api/contact (SMTP, siehe README), sonst Formspree.
   contactBackend: process.env.CONTACT_BACKEND === "vercel" ? "vercel" : "formspree",
   formspreeAction: "https://formspree.io/f/xvzdelpq",
