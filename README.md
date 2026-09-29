@@ -26,6 +26,7 @@ bzw. `CHROMIUM_PATH=…` / `CHROME_PATH=…`).
 | `src/*.njk` | Seiten (Startseite, Über uns, Kontakt, Datenschutz, Impressum, 404, robots, sitemap, security.txt) |
 | `src/assets/` | CSS (Design-Tokens), JS, Bilder, OG-Bild |
 | `src/static/` | Favicons im Webroot |
+| `middleware.js`, `lib/gate.js` | «Bald online»-Sperre für die öffentlichen Adressen (siehe *Deployment*) |
 | `scripts/` | Prüfskripte und Icon-Generator (`npm run icons`) |
 
 Navbar und Footer existieren nur einmal (`src/_includes/partials/`).
@@ -50,6 +51,15 @@ und als `assets/css/site.css` ausgeliefert.
 2. Deployen. Jeder Push auf `main` geht live, jeder Pull Request bekommt ein Preview (automatisch `noindex`).
 3. Eigene Domain unter *Settings → Domains* hinzufügen. `SITE_URL` nur setzen, falls die Domain nicht die
    Produktions-Domain des Projekts ist.
+
+**«Bald online»-Sperre:** Solange die Website nicht freigegeben ist, liefert `middleware.js` (Logik: `lib/gate.js`)
+auf jeder öffentlichen Adresse – `edusol.ch`, `www.edusol.ch`, `<projekt>.vercel.app` – für **jeden Pfad** eine
+«Bald online»-Seite mit Status 503 und `noindex`, auch für `/api/contact`. Ausgenommen sind nur Logo, Schrift und Favicons.
+Die ganze Website sieht man nur über die eindeutige Deployment-URL (`VERCEL_URL`) bzw. die Branch-URL eines Previews
+(`VERCEL_BRANCH_URL`), die Vercel per Login schützt. Voraussetzungen in Vercel:
+*Settings → Deployment Protection* auf **Standard Protection** und *Settings → Environment Variables* mit
+aktiviertem „Automatically expose System Environment Variables“ (sonst ist auch die Arbeits-URL gesperrt).
+**Freigabe:** Umgebungsvariable `SITE_PUBLIC=true` (Production) setzen und neu deployen. Solange sie fehlt, bleibt gesperrt.
 
 **Speed Insights (optional, kostenpflichtig):** In Vercel aktivieren und zusätzlich die Umgebungsvariable
 `SPEED_INSIGHTS=true` setzen, dann neu deployen. Script und Datenschutz-Absatz erscheinen erst dann.
@@ -124,3 +134,4 @@ Veröffentlicht wird ausschliesslich über Vercel.
 - [ ] Auftragsbearbeitungsvertrag (DPA) mit Formspree abschliessen
 - [ ] Kontaktformular auf eigene Funktion umstellen (siehe *Kontaktformular*: Versand über `info@edusol.ch` bei Hostpoint)
 - [ ] `securityTxtExpires` jährlich erneuern (Kalendereintrag!)
+- [ ] «Bald online»-Sperre aufheben: `SITE_PUBLIC=true` in Vercel setzen, neu deployen, `edusol.ch` prüfen
