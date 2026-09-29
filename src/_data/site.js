@@ -27,7 +27,7 @@ export default {
   securityEmail: "info@edusol.ch",
   phone: "",
   // Akut-Hilfe: nur telefonisch, zu Bürozeiten. Leer = Platzhalter wird angezeigt.
-  akutPhone: "+41 79 547 36 81",
+  akutPhone: "+41 79 730 08 94",
   akutHours: "Montag bis Freitag, 8–17 Uhr",
   akutHoursShort: "Mo–Fr 8–17 Uhr",
   whatsapp: "",
