@@ -65,18 +65,21 @@ Die Datenschutzerklärung nennt beim Build auf Vercel automatisch Vercel als Hos
 `api/contact.js` (Vercel Function, Region Frankfurt) prüft die Anfrage serverseitig und sendet sie per SMTP
 direkt ins Postfach – ohne Formularanbieter, ohne CAPTCHA. Logik: `lib/contact.js`, Tests: `tests/`.
 
-> **Status: noch nicht aktiv – wartet auf ein eigenes Postfach.** Bis dahin läuft das Formular über Formspree.
-> Die Mails von edusol.ch liegen bei **Hostpoint** (`info@edusol.ch`). Geplant ist ein eigenes Postfach
-> `form@edusol.ch` nur für den Versand. Offen:
+> **Status: noch nicht aktiv.** Bis zur Umstellung läuft das Formular über Formspree.
+> Die Mails von edusol.ch liegen bei **Hostpoint**. **Entscheid des Teams:** Versand über das bestehende
+> Postfach `info@edusol.ch` (kein separates Formular-Postfach). Offen:
 >
-> - [ ] Klären, ob wir bei Hostpoint ein zusätzliches Postfach anlegen dürfen (Kunde/Abo).
-> - [ ] `form@edusol.ch` als **eigenen Mailaccount** anlegen – *keine* „alternative Adresse“ (Alias von info@),
->       sonst läuft der SMTP-Login weiter mit dem Passwort von info@.
-> - [ ] Starkes, einmaliges Passwort vergeben; in form@ eine Weiterleitung an info@ einrichten (Bounces).
+> - [ ] Passwort von info@ vorher auf ein langes, einmaliges ändern (nirgends sonst verwendet).
+> - [ ] Zwei-Faktor-Anmeldung bei Vercel und GitHub für alle Personen mit Zugang einschalten.
 > - [ ] Hostpoint Control Panel → *Domains → Bearbeiten → E-Mail-Sicherheit konfigurieren*: DKIM aktiv,
 >       DMARC gesetzt, genau ein SPF-Eintrag.
+> - [ ] Variablen unten in Vercel eintragen, neu deployen, Formular testen, Formspree kündigen.
 >
-> Das Passwort von info@ nicht in Vercel hinterlegen: Ein Leck würde das ganze Hauptpostfach offenlegen.
+> Bewusst in Kauf genommenes Risiko: Das Passwort von info@ liegt in Vercel. Wer Vercel- oder
+> Repo-Zugriff erlangt, kann das ganze Hauptpostfach lesen und darin senden. Deshalb das Passwort
+> ändern, sobald jemand mit Zugang ausscheidet oder ein Konto kompromittiert sein könnte.
+> Sicherere Alternative, falls der Entscheid später überdacht wird: eigenes Postfach `form@edusol.ch`
+> (eigener Mailaccount, kein Alias) mit Weiterleitung an info@.
 
 Werte für Hostpoint:
 
@@ -84,9 +87,9 @@ Werte für Hostpoint:
 |---|---|
 | `SMTP_HOST` | `asmtp.mail.hostpoint.ch` |
 | `SMTP_PORT` | `587` (STARTTLS) – alternativ `465` (SSL) |
-| `SMTP_USER` | `form@edusol.ch` |
-| `SMTP_PASS` | Passwort von form@ (in Vercel als *Sensitive* markieren) |
-| `MAIL_FROM` | `EDUSOL Website <form@edusol.ch>` |
+| `SMTP_USER` | `info@edusol.ch` |
+| `SMTP_PASS` | Passwort von info@ (in Vercel als *Sensitive* markieren) |
+| `MAIL_FROM` | `EDUSOL Website <info@edusol.ch>` |
 | `MAIL_TO` | `info@edusol.ch` |
 | `CONTACT_BACKEND` | `vercel` |
 
@@ -119,5 +122,5 @@ Veröffentlicht wird ausschliesslich über Vercel.
 - [ ] Platzhalter in `src/_data/site.js` ersetzen (`npm run check:placeholders -- --strict`)
 - [ ] Datenschutzerklärung und Impressum rechtlich prüfen lassen
 - [ ] Auftragsbearbeitungsvertrag (DPA) mit Formspree abschliessen
-- [ ] Kontaktformular auf eigene Funktion umstellen (siehe *Kontaktformular*: Postfach `form@edusol.ch` bei Hostpoint)
+- [ ] Kontaktformular auf eigene Funktion umstellen (siehe *Kontaktformular*: Versand über `info@edusol.ch` bei Hostpoint)
 - [ ] `securityTxtExpires` jährlich erneuern (Kalendereintrag!)
