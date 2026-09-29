@@ -964,6 +964,16 @@ html:not(.js) .akut-tab {
   padding: 12px;
 }
 
+/* Echte Teamfotos: füllen den Rahmen, Gesicht bleibt auch im Querformat (mobil) sichtbar */
+.team-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 25%;
+  border-radius: var(--radius-lg);
+}
+
 .photo-slot svg {
   width: 28px;
   height: 28px;

@@ -21,8 +21,12 @@ pageScript: /assets/js/tabs.js
       {%- for m in team %}
       <li class="team-card">
         <div class="team-card__photo">
+          {%- if m.photo %}
+          <img class="team-photo" src="{{ m.photo }}" width="720" height="900" alt="">
+          {%- else %}
           {%- set slotLabel = "Foto " + m.name + " folgt" %}{% set slotClass = "" %}
           {% include "partials/photo-slot.njk" %}
+          {%- endif %}
         </div>
         <a href="#profil-{{ m.slug }}" data-tab-link="{{ m.slug }}">
           <span class="team-card__name">{{ m.name }}</span>
@@ -61,8 +65,12 @@ pageScript: /assets/js/tabs.js
     {%- set next = team[(loop.index0 + 1) % (team | length)] %}
     <div class="profile" id="profil-{{ m.slug }}" data-tabpanel>
       <div class="profile__photo">
+        {%- if m.photo %}
+        <img class="team-photo" src="{{ m.photo }}" width="720" height="900" alt="Porträt von {{ m.name }}" loading="lazy">
+        {%- else %}
         {%- set slotLabel = "Foto " + m.name + " folgt" %}{% set slotClass = "" %}
         {% include "partials/photo-slot.njk" %}
+        {%- endif %}
       </div>
       <div class="stack stack-lg">
         <div class="stack stack-sm">
