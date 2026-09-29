@@ -1,6 +1,50 @@
 [
-  { "slug": "patrick", "name": "Patrick", "role": "[Platzhalter – Funktion, z. B. Schulleiter]", "fields": ["schulentwicklung", "fachvortraege"] },
-  { "slug": "susann", "name": "Susann", "role": "[Platzhalter – Funktion]", "fields": ["coaching-supervision", "krisenmanagement"] },
-  { "slug": "dominik", "name": "Dominik", "role": "[Platzhalter – Funktion, z. B. Institutionsleiter]", "fields": ["npo", "schulentwicklung"] },
-  { "slug": "thorsten", "name": "Thorsten", "role": "[Platzhalter – Funktion]", "fields": ["krisenmanagement", "fachvortraege"] }
+  {
+    "slug": "patrick",
+    "name": "Patrick",
+    "role": "[Platzhalter – Funktion, z. B. Schulleiter]",
+    "fields": [
+      "schulentwicklung",
+      "fachvortraege"
+    ],
+    "intro": "[Platzhalter – Kurze Vorstellung in Ich-Form: wer ich bin, woher ich komme und was mich antreibt. 2–3 Sätze.]",
+    "experience": "[Platzhalter – Berufliche Erfahrung, Ausbildungen, Zertifizierungen.]",
+    "why": "[Platzhalter – Was mich mit EDUSOL verbindet, in einem Satz.]"
+  },
+  {
+    "slug": "susann",
+    "name": "Susann",
+    "role": "[Platzhalter – Funktion]",
+    "fields": [
+      "coaching-supervision",
+      "krisenmanagement"
+    ],
+    "intro": "[Platzhalter – Kurze Vorstellung in Ich-Form: wer ich bin, woher ich komme und was mich antreibt. 2–3 Sätze.]",
+    "experience": "[Platzhalter – Berufliche Erfahrung, Ausbildungen, Zertifizierungen.]",
+    "why": "[Platzhalter – Was mich mit EDUSOL verbindet, in einem Satz.]"
+  },
+  {
+    "slug": "dominik",
+    "name": "Dominik",
+    "role": "[Platzhalter – Funktion, z. B. Institutionsleiter]",
+    "fields": [
+      "npo",
+      "schulentwicklung"
+    ],
+    "intro": "[Platzhalter – Kurze Vorstellung in Ich-Form: wer ich bin, woher ich komme und was mich antreibt. 2–3 Sätze.]",
+    "experience": "[Platzhalter – Berufliche Erfahrung, Ausbildungen, Zertifizierungen.]",
+    "why": "[Platzhalter – Was mich mit EDUSOL verbindet, in einem Satz.]"
+  },
+  {
+    "slug": "thorsten",
+    "name": "Thorsten",
+    "role": "[Platzhalter – Funktion]",
+    "fields": [
+      "krisenmanagement",
+      "fachvortraege"
+    ],
+    "intro": "[Platzhalter – Kurze Vorstellung in Ich-Form: wer ich bin, woher ich komme und was mich antreibt. 2–3 Sätze.]",
+    "experience": "[Platzhalter – Berufliche Erfahrung, Ausbildungen, Zertifizierungen.]",
+    "why": "[Platzhalter – Was mich mit EDUSOL verbindet, in einem Satz.]"
+  }
 ]

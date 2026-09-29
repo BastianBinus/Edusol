@@ -68,15 +68,15 @@ pageScript: /assets/js/tabs.js
           <h3 id="name-{{ m.slug }}">Hallo, ich bin {{ m.name }}.</h3>
           <p class="profile__role">{{ m.role }}</p>
         </div>
-        <p class="profile__intro">[Platzhalter – Kurze Vorstellung in Ich-Form: wer ich bin, woher ich komme und was mich antreibt. 2–3 Sätze.]</p>
+        <p class="profile__intro">{{ m.intro }}</p>
         <div class="profile__facts">
           <div class="profile__fact">
             <h4 class="label-caps">Das bringe ich mit</h4>
-            <p>[Platzhalter – Berufliche Erfahrung, Ausbildungen, Zertifizierungen.]</p>
+            <p>{{ m.experience }}</p>
           </div>
           <div class="profile__fact">
             <h4 class="label-caps">Warum EDUSOL</h4>
-            <p>[Platzhalter – Was mich mit EDUSOL verbindet, in einem Satz.]</p>
+            <p>{{ m.why }}</p>
           </div>
         </div>
         <div class="stack stack-md">
