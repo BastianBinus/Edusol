@@ -2966,12 +2966,12 @@ textarea.input {
   }
 
   .profile__photo {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1 / 1;
     max-width: none;
   }
 
   .profile__photo .team-photo {
-    object-position: 50% 15%;
+    object-position: 50% 0%;
   }
 
   .profile h3 {
