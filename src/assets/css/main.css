@@ -900,17 +900,15 @@ html:not(.js) .akut-tab {
 }
 
 .avatar {
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
+  display: block;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--c-sky-300);
-  border: 2px solid var(--c-sky-100);
-  margin-right: -10px;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--c-heading);
+  border: 2px solid #fff;
+  margin-right: -8px;
+  object-fit: cover;
+  flex: none;
 }
 
 .team-strip__text {
