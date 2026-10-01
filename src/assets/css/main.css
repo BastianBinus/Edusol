@@ -2970,6 +2970,10 @@ textarea.input {
     max-width: none;
   }
 
+  .profile__photo .team-photo {
+    object-position: 50% 10%;
+  }
+
   .profile h3 {
     font-size: 1.75rem;
   }
