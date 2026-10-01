@@ -9,7 +9,7 @@ const silent = { error() {} };
 const valid = {
   name: "Max Muster",
   email: "max@schule.ch",
-  thema: "NPO-Beratung",
+  thema: "Organisationsentwicklung",
   nachricht: "Hallo EDUSOL",
 };
 

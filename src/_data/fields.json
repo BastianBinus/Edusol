@@ -94,16 +94,16 @@
   },
   {
     "slug": "npo",
-    "title": "NPO-Beratung",
-    "short": "NPO",
+    "title": "Organisationsentwicklung",
+    "short": "Organisationsentwicklung",
     "color": "#62432b",
-    "description": "Beratung und Begleitung für Non-Profit-Organisationen: Organisationsentwicklung, Strategieberatung und Teamentwicklung mit Blick auf das Gemeinwohl.",
-    "lead": "Stärkung gemeinnütziger Organisationen durch professionelle Beratung, Organisationsentwicklung und strategische Begleitung.",
+    "description": "Organisationsentwicklung für NPO, Vereine und soziale Institutionen: Strukturen, Strategie und Teams weiterentwickeln – mit Blick auf das Gemeinwohl.",
+    "lead": "Wir begleiten NPO, Vereine und soziale Institutionen dabei, Strukturen, Strategie und Teams weiterzuentwickeln – mit Blick auf das Gemeinwohl.",
     "heading": "Gemeinwohl stärken",
-    "body": "Non-Profit-Organisationen stehen vor besonderen Herausforderungen: begrenzte Ressourcen, hohe Ansprüche, viele Anspruchsgruppen. EDUSOL begleitet NPO bei der Klärung von Mission und Strategie, der Weiterentwicklung von Organisationsstrukturen sowie bei der Professionalisierung von Teams und Leitungen. Wir verstehen die Eigenlogik gemeinnütziger Arbeit und bringen Erfahrung aus dem Bildungs- und Sozialbereich mit.",
+    "body": "Non-Profit-Organisationen stehen vor besonderen Herausforderungen: begrenzte Ressourcen, hohe Ansprüche, viele Anspruchsgruppen. EDUSOL begleitet NPO, Vereine und soziale Institutionen bei der Klärung von Mission und Strategie, der Weiterentwicklung von Organisationsstrukturen sowie bei der Professionalisierung von Teams und Leitungen. Wir verstehen die Eigenlogik gemeinnütziger Arbeit und bringen Erfahrung aus dem Bildungs- und Sozialbereich mit.",
     "features": [
       {
-        "title": "Organisationsentwicklung",
+        "title": "Strukturen & Rollen",
         "text": "Strukturen analysieren, Rollen klären und Organisationskultur gezielt weiterentwickeln."
       },
       {
@@ -117,10 +117,10 @@
     ],
     "heroWidth": 366,
     "heroHeight": 160,
-    "cardTitle": "NPO-Beratung",
-    "seoTitle": "NPO-Beratung: Organisation und Strategie – EDUSOL",
+    "cardTitle": "Organisations­entwicklung",
+    "seoTitle": "Organisationsentwicklung für NPO, Vereine und Institutionen – EDUSOL",
     "tint": "#f3ebe3",
-    "menuTitle": "NPO",
+    "menuTitle": "Organisationsentwicklung",
     "photoAlt": "Drei Spielfiguren entwickeln gemeinsam eine Strategie an einem Besprechungstisch"
   },
   {

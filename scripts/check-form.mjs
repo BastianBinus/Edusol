@@ -61,7 +61,7 @@ if (backend === "vercel") {
     await Promise.all([page.waitForSelector("#form-success", { state: "visible" }), page.click('button[type="submit"]')]);
     const mail = sentMails.at(-1);
     expect(mail?.replyTo?.address === "max@schule.ch", "API: Mail nicht mit Reply-To erzeugt");
-    expect(/Thema: NPO-Beratung/.test(mail?.text ?? ""), "API: Thema fehlt in der Mail");
+    expect(/Thema: Organisationsentwicklung/.test(mail?.text ?? ""), "API: Thema fehlt in der Mail");
     await page.close();
   }
   // Serverseitiger Feldfehler (Telefon wird im Browser nicht geprüft)

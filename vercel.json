@@ -75,6 +75,11 @@
       "source": "/einblicke",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/wirkungsfelder",
+      "destination": "/angebote",
+      "permanent": true
     }
   ]
 }

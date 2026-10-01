@@ -19,8 +19,8 @@ bzw. `CHROMIUM_PATH=…` / `CHROME_PATH=…`).
 | Pfad | Inhalt |
 |---|---|
 | `src/_data/site.js` | **Stammdaten**: E-Mail, Adresse, Akut-Telefon und -Zeiten, WhatsApp, Formular-Endpoint, `security.txt`-Ablauf |
-| `src/_data/fields.json` | Inhalte und Farben der fünf Wirkungsfelder (erzeugt je eine Seite) |
-| `src/_data/team.json` | Team-Profile (Rolle, Vorstellungstexte, Wirkungsfelder) für „Wir sind EDUSOL“ |
+| `src/_data/fields.json` | Inhalte und Farben der fünf Angebote (erzeugt je eine Seite) |
+| `src/_data/team.json` | Team-Profile (Rolle, Vorstellungstexte, Schwerpunkte) für „Wir sind EDUSOL“ |
 | `src/_data/steps.json` | Ablauf-Schritte |
 | `src/_includes/` | Basis-Layout, Header, Footer, JSON-LD |
 | `src/*.njk` | Seiten (Startseite, Über uns, Kontakt, Datenschutz, Impressum, 404, robots, sitemap, security.txt) |
