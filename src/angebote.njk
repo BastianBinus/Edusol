@@ -1,0 +1,24 @@
+---
+layout: layouts/base.njk
+title: Angebote
+fullTitle: Angebote – Coaching, Schulentwicklung und mehr – EDUSOL
+description: Die fünf Angebote von EDUSOL im Überblick – Coaching und Supervision, Fachvorträge, Krisenmanagement, Organisationsentwicklung und Schulentwicklung.
+permalink: /angebote.html
+breadcrumb:
+  - name: Angebote
+    url: /angebote.html
+---
+<section class="hero hero--page">
+  <div class="container hero__inner stack stack-md">
+    <p class="eyebrow">Was wir tun</p>
+    <h1 class="h-page">Angebote</h1>
+    <p class="lead">Fünf Felder, ein Team aus der Praxis.</p>
+  </div>
+</section>
+
+<section class="section section--soft field-list" aria-labelledby="felder-title">
+  <div class="container">
+    <h2 class="visually-hidden" id="felder-title">Alle Angebote</h2>
+    {% include "partials/field-cards.njk" %}
+  </div>
+</section>

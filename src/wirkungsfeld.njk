@@ -10,7 +10,7 @@
     ctaTopic: (data) => data.field.slug,
     bodyClass: () => "has-bottom-bar",
     breadcrumb: (data) => [
-      { name: "Wirkungsfelder", url: "/wirkungsfelder.html" },
+      { name: "Angebote", url: "/angebote.html" },
       { name: data.field.menuTitle, url: `/${data.field.slug}.html` },
     ],
   },
@@ -22,7 +22,7 @@
       <nav class="breadcrumb" aria-label="Brotkrümelpfad">
         <ol>
           <li><a href="/">Startseite</a></li>
-          <li class="breadcrumb__back"><a href="/wirkungsfelder.html"><span class="breadcrumb__chev" aria-hidden="true">‹ </span><span class="breadcrumb__all">Alle </span>Wirkungsfelder</a></li>
+          <li class="breadcrumb__back"><a href="/angebote.html"><span class="breadcrumb__chev" aria-hidden="true">‹ </span><span class="breadcrumb__all">Alle </span>Angebote</a></li>
           <li><span class="accent-text" aria-current="page">{{ field.menuTitle }}</span></li>
         </ol>
       </nav>
@@ -88,7 +88,7 @@
 
 <section class="section section--soft" aria-labelledby="weitere-title">
   <div class="container stack stack-md">
-    <h2 class="h-small" id="weitere-title">Weitere Wirkungsfelder</h2>
+    <h2 class="h-small" id="weitere-title">Weitere Angebote</h2>
     <ul class="other-fields scroller">
       {%- for f in fields %}{% if f.slug != field.slug %}
       <li class="theme-{{ f.slug }}">

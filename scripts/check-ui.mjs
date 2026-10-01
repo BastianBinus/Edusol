@@ -63,7 +63,7 @@ const expect = (cond, msg) => cond || failures.push(msg);
   await toggle.click();
   await page.waitForTimeout(400);
   expect((await toggle.getAttribute("aria-expanded")) === "true", "Menü mobil: aria-expanded nicht true");
-  expect(await page.locator(".site-nav .mega__item").first().isVisible(), "Menü mobil: Wirkungsfelder nicht sichtbar");
+  expect(await page.locator(".site-nav .mega__item").first().isVisible(), "Menü mobil: Angebote nicht sichtbar");
   expect(!(await fab.isVisible()), "Menü mobil: Akut-Knopf liegt über dem Menü");
   expect(await page.evaluate(() => document.querySelector(".site-nav").contains(document.activeElement)), "Menü mobil: Fokus nicht im Menü");
   await page.keyboard.press("Escape");
