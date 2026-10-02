@@ -32,7 +32,7 @@ pageScript: /assets/js/tabs.js
           {%- endif %}
         </div>
         <a href="#profil-{{ m.slug }}" data-tab-link="{{ m.slug }}">
-          <span class="team-card__name">{{ m.name }}</span>
+          <span class="team-card__name">{{ m.name }} {{ m.lastName }}</span>
           <span class="team-card__more">Vorstellung lesen <span aria-hidden="true">→</span></span>
         </a>
       </li>
@@ -70,7 +70,7 @@ pageScript: /assets/js/tabs.js
     <div class="profile" id="profil-{{ m.slug }}" data-tabpanel>
       <div class="profile__photo">
         {%- if m.photo %}
-        <img class="team-photo" src="{{ m.photo }}" width="720" height="900" alt="Porträt von {{ m.name }}" loading="lazy">
+        <img class="team-photo" src="{{ m.photo }}" width="720" height="900" alt="Porträt von {{ m.name }} {{ m.lastName }}" loading="lazy">
         {%- else %}
         {%- set slotLabel = "Foto " + m.name + " folgt" %}{% set slotClass = "" %}
         {% include "partials/photo-slot.njk" %}
@@ -78,7 +78,7 @@ pageScript: /assets/js/tabs.js
       </div>
       <div class="stack stack-lg">
         <div class="stack stack-sm">
-          <h3 id="name-{{ m.slug }}">Hallo, ich bin {{ m.name }}.</h3>
+          <h3 id="name-{{ m.slug }}">Hallo, ich bin {{ m.name }} {{ m.lastName }}.</h3>
           <p class="profile__role">{{ m.role }}</p>
         </div>
         <p class="profile__intro">{{ m.intro }}</p>
@@ -105,7 +105,7 @@ pageScript: /assets/js/tabs.js
           <a class="btn btn--primary" href="/kontakt.html">Mit {{ m.name }} sprechen</a>
           <a class="btn btn--outline" href="#profil-{{ next.slug }}" data-tab-link="{{ next.slug }}">Weiter: {{ next.name }} <span aria-hidden="true">→</span></a>
           {%- if m.linkedin %}
-          <a class="link-arrow" href="{{ m.linkedin }}" rel="noopener" target="_blank">{{ m.name }} auf LinkedIn<span class="visually-hidden"> (öffnet in neuem Tab)</span></a>
+          <a class="link-arrow" href="{{ m.linkedin }}" rel="noopener" target="_blank">{{ m.name }} {{ m.lastName }} auf LinkedIn<span class="visually-hidden"> (öffnet in neuem Tab)</span></a>
           {%- endif %}
         </div>
       </div>
