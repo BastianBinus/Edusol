@@ -2,6 +2,7 @@
   {
     "slug": "dominik",
     "name": "Dominik",
+    "lastName": "Bucher",
     "role": "Präsident von EDUSOL",
     "fields": [
       "npo",
@@ -16,6 +17,7 @@
   {
     "slug": "patrick",
     "name": "Patrick",
+    "lastName": "Degen",
     "role": "Schulleiter Primarschule und Kindergarten Witterswil/Bättwil",
     "fields": [
       "schulentwicklung",
@@ -31,6 +33,7 @@
   {
     "slug": "susann",
     "name": "Susann",
+    "lastName": "Schaffter",
     "role": "Buchhaltung und Finanzberatung",
     "fields": [
       "npo",
@@ -45,6 +48,7 @@
   {
     "slug": "thorsten",
     "name": "Thorsten",
+    "lastName": "Binus",
     "role": "Institutionsleiter Auf Berg AG",
     "fields": [
       "krisenmanagement",
