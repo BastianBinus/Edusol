@@ -61,9 +61,9 @@
     "seoTitle": "Fachvorträge und Weiterbildung für Schulen – EDUSOL",
     "tint": "#efe8f3",
     "menuTitle": "Fachvorträge",
-    "sceneAlt": "Rednerpult auf einem violetten Podest vor Stuhlreihen, am Pult steht die EDUSOL-Eule",
-    "sceneWidth": 1072,
-    "sceneHeight": 778
+    "sceneAlt": "Rednerpult auf einem violetten Podest, davor Stühle im Halbkreis mit Notizbüchern, am Pult steht die EDUSOL-Eule",
+    "sceneWidth": 1200,
+    "sceneHeight": 560
   },
   {
     "slug": "krisenmanagement",
@@ -94,9 +94,9 @@
     "seoTitle": "Krisenmanagement für Schulen und Organisationen – EDUSOL",
     "tint": "#e6eaf4",
     "menuTitle": "Krisenmanagement",
-    "sceneAlt": "Ein schiefer Turm aus Bausteinen wird von einem blauen Balken sicher gestützt, daneben die EDUSOL-Eule",
-    "sceneWidth": 1120,
-    "sceneHeight": 928
+    "sceneAlt": "Ein schiefer Turm aus Bausteinen wird von einem blauen Balken sicher gestützt, am Fuss wächst ein grüner Spross, auf dem Sockel steht die EDUSOL-Eule",
+    "sceneWidth": 1114,
+    "sceneHeight": 957
   },
   {
     "slug": "npo",
