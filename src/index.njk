@@ -42,12 +42,24 @@ permalink: /
   </div>
 </section>
 
-<section class="section section--white home-news" aria-labelledby="news-title">
-  <div class="container home-news__inner">
+<section class="section section--white home-praxis" aria-labelledby="praxis-title">
+  <div class="container stack stack-xl">
     <div class="stack stack-sm">
-      <h2 class="h-small" id="news-title">Aktuelles aus unserer Arbeit</h2>
-      <p class="subtitle">Projekte, Impulse und Neuigkeiten teilen wir auf LinkedIn.</p>
+      <h2 class="h-section" id="praxis-title">Aus unserer Praxis</h2>
+      <p class="subtitle">Wir sind ein Team aus verschiedenen Fachleuten – mit unterschiedlichen Erfahrungen und Perspektiven. Ein Auszug aus dem, was wir bereits begleitet haben.</p>
     </div>
-    <a class="btn btn--outline" href="{{ site.linkedin }}" rel="noopener" target="_blank">EDUSOL auf LinkedIn<span class="visually-hidden"> (öffnet in neuem Tab)</span></a>
+    <ul class="praxis-grid">
+      {%- for p in praxis %}
+      <li class="theme-{{ p.field }}">
+        <div class="praxis-card">
+          <img src="/assets/img/eulen/{{ p.field }}.svg" width="40" height="36" alt="" loading="lazy">
+          <span class="praxis-card__field accent-text">{% for f in fields %}{% if f.slug == p.field %}{{ f.menuTitle }}{% endif %}{% endfor %}</span>
+          <h3 class="praxis-card__title">{{ p.title }}</h3>
+          <p class="praxis-card__text">{{ p.text }}</p>
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p class="home-praxis__more">Projekte, Impulse und Neuigkeiten teilen wir auf <a href="{{ site.linkedin }}" rel="noopener" target="_blank">LinkedIn<span class="visually-hidden"> (öffnet in neuem Tab)</span></a>.</p>
   </div>
 </section>

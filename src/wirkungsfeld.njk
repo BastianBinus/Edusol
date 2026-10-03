@@ -83,6 +83,18 @@
         </ol>
       </div>
     </div>
+    {%- if field.practice %}
+    <div class="container">
+      <div class="practice">
+        <h2 class="h-sub">Beispiele aus unserer Praxis</h2>
+        <ul class="practice__list">
+          {%- for t in field.practice %}
+          <li>{{ t }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+    {%- endif %}
   </section>
 </div>
 

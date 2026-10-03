@@ -63,7 +63,11 @@
     "menuTitle": "Fachvorträge",
     "sceneAlt": "Rednerpult auf einem violetten Podest, davor Stühle im Halbkreis mit Notizbüchern, am Pult steht die EDUSOL-Eule",
     "sceneWidth": 1200,
-    "sceneHeight": 560
+    "sceneHeight": 560,
+    "practice": [
+      "Fachvortrag zum Thema Schulabsentismus vor Fachpublikum",
+      "Schulinterne Weiterbildungen zu Traumapädagogik und Teamentwicklung"
+    ]
   },
   {
     "slug": "krisenmanagement",
@@ -96,7 +100,11 @@
     "menuTitle": "Krisenmanagement",
     "sceneAlt": "Ein schiefer Turm aus Bausteinen wird von einem blauen Balken sicher gestützt, am Fuss wächst ein grüner Spross, auf dem Sockel steht die EDUSOL-Eule",
     "sceneWidth": 1114,
-    "sceneHeight": 957
+    "sceneHeight": 957,
+    "practice": [
+      "Krisen in Schulen und Organisationen gehören zu unserem beruflichen Alltag – wir sind erprobt und wissen, was zu tun ist",
+      "Ein Team aus verschiedenen Fachleuten mit unterschiedlichen Erfahrungen und Perspektiven"
+    ]
   },
   {
     "slug": "npo",
@@ -129,7 +137,12 @@
     "menuTitle": "Organisationsentwicklung",
     "sceneAlt": "Eine Mauer aus Bausteinen, links bröckelnd, rechts sauber gefügt, verbunden durch einen ockerfarbenen Schlussstein, oben die EDUSOL-Eule",
     "sceneWidth": 1200,
-    "sceneHeight": 723
+    "sceneHeight": 723,
+    "practice": [
+      "Fusion mehrerer Institutionen über Jahre vorangetrieben und begleitet",
+      "Erfahrung in Change-Prozessen aus der eigenen Leitungspraxis",
+      "Weiterbildungen zur Teamentwicklung"
+    ]
   },
   {
     "slug": "schulentwicklung",
@@ -162,6 +175,10 @@
     "menuTitle": "Schulentwicklung",
     "sceneAlt": "Ein Weg aus Bausteinen führt zu einem Schulportal, ein roter Stein liegt für das nächste Wegstück bereit, am Rand die EDUSOL-Eule",
     "sceneWidth": 1200,
-    "sceneHeight": 807
+    "sceneHeight": 807,
+    "practice": [
+      "Entwicklung einer gewaltfreien Schulhauskultur über eine gemeinsame, klare Haltung im Team",
+      "Begleitung von Schulteams bei der Entwicklung einer gemeinsamen Schulhauskultur"
+    ]
   }
 ]

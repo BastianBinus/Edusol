@@ -2185,12 +2185,92 @@ textarea.input {
   background: #fff;
 }
 
-.home-news__inner {
+/* Startseite: Aus unserer Praxis */
+.praxis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 16px;
+}
+
+.praxis-card {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+  padding: 22px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--tint);
+  color: var(--c-text);
+}
+
+.praxis-card img {
+  width: 40px;
+  height: 36px;
+  margin-bottom: 4px;
+}
+
+.praxis-card__field {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.praxis-card__title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--c-heading);
+}
+
+.praxis-card__text {
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.home-praxis__more {
+  font-size: 0.9375rem;
+  color: var(--c-muted);
+}
+
+.home-praxis__more a {
+  font-weight: 600;
+}
+
+/* Fachbereich: Beispiele aus unserer Praxis */
+.practice {
+  margin-top: clamp(32px, 4vw, 48px);
+  padding: clamp(22px, 3vw, 32px);
+  border-radius: var(--radius-lg);
+  background: var(--tint);
+}
+
+.practice .h-sub {
+  margin-bottom: 14px;
+}
+
+.practice__list {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.practice__list li {
+  position: relative;
+  padding-left: 22px;
+  line-height: 1.6;
+}
+
+.practice__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 .legal-summary {
