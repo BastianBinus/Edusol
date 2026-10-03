@@ -92,7 +92,7 @@
     <ul class="other-fields scroller">
       {%- for f in fields %}{% if f.slug != field.slug %}
       <li class="theme-{{ f.slug }}">
-        <a href="/{{ f.slug }}.html"><img src="/assets/img/eulen/{{ f.slug }}.svg" width="40" height="36" alt="" loading="lazy">{{ f.menuTitle }}</a>
+        <a href="/{{ f.slug }}.html"><img src="/assets/img/eulen/{{ f.slug }}.svg" width="40" height="36" alt="" loading="lazy"><span>{{ f.menuTitle if " " in f.menuTitle else f.cardTitle }}</span></a>
       </li>
       {%- endif %}{% endfor %}
     </ul>
