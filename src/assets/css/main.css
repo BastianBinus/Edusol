@@ -992,14 +992,15 @@ html:not(.js) .akut-tab {
   height: 28px;
 }
 
-.hero-image {
+/* Startseite: freigestellte Szene ohne Rahmen */
+.hero-scene {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: 50% 35%;
-  border-radius: 24px;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 24px rgba(26, 58, 80, 0.18));
 }
+
 
 .photo-slot--hero {
   border-radius: 24px;
@@ -1147,19 +1148,19 @@ a.chip-field:hover {
   object-position: left center;
 }
 
-/* Bild zwischen Hero und Inhalt: ragt halb in den getönten Hero hinein */
-.field-photo-wrap {
-  margin-top: clamp(-64px, -5vw, -32px);
+/* Freigestellte Szene zwischen Hero und Inhalt: ragt in den getönten Hero hinein */
+.field-scene-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(-72px, -6vw, -36px);
   position: relative;
 }
 
-.field-photo {
+.field-scene {
   display: block;
-  width: 100%;
+  width: min(100%, 640px);
   height: auto;
-  aspect-ratio: 2 / 1;
-  object-fit: cover;
-  border-radius: var(--radius-lg);
+  filter: drop-shadow(0 16px 20px rgba(26, 58, 80, 0.16));
 }
 
 .field-hero__teaser {
@@ -2781,8 +2782,8 @@ textarea.input {
     padding-block: 8px 32px;
   }
 
-  .field-photo-wrap {
-    margin-top: -16px;
+  .field-scene-wrap {
+    margin-top: -20px;
   }
 
   .breadcrumb li:not(.breadcrumb__back) {

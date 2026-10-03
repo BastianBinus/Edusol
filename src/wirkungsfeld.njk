@@ -57,8 +57,8 @@
     </div>
   </section>
 
-  <div class="container field-photo-wrap">
-    <img class="field-photo" src="/assets/img/bilder/{{ field.slug }}.webp" srcset="/assets/img/bilder/{{ field.slug }}-800.webp 800w, /assets/img/bilder/{{ field.slug }}.webp 1600w" sizes="(max-width: 72rem) 100vw, 72rem" width="1600" height="800" alt="{{ field.photoAlt }}" loading="lazy">
+  <div class="container field-scene-wrap">
+    <img class="field-scene" src="/assets/img/szenen/{{ field.slug }}.webp" srcset="/assets/img/szenen/{{ field.slug }}-600.webp 600w, /assets/img/szenen/{{ field.slug }}.webp {{ field.sceneWidth }}w" sizes="(max-width: 48rem) 92vw, 640px" width="{{ field.sceneWidth }}" height="{{ field.sceneHeight }}" alt="{{ field.sceneAlt }}" loading="lazy">
   </div>
 
   <section class="section section--white">
