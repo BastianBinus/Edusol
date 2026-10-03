@@ -2795,7 +2795,9 @@ textarea.input {
   }
 
   .field-scene {
-    width: min(100%, 360px);
+    width: min(66%, 260px);
+    max-height: 220px;
+    object-fit: contain;
   }
 
   .breadcrumb li:not(.breadcrumb__back) {
