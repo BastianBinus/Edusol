@@ -39,26 +39,26 @@
             {%- endif %}
           </div>
         </div>
-        <div class="formats">
-          <h2 class="formats__label">Unsere Formate</h2>
-          <ol class="formats__list">
-            {%- for o in field.features %}
-            <li class="formats__item">
-              <span class="num" aria-hidden="true">{{ loop.index }}</span>
-              <div class="stack">
-                <h3>{{ o.title }}</h3>
-                <p>{{ o.text }}</p>
-              </div>
-            </li>
-            {%- endfor %}
-          </ol>
-        </div>
+        <img class="field-scene" src="/assets/img/szenen/{{ field.slug }}.webp" srcset="/assets/img/szenen/{{ field.slug }}-600.webp 600w, /assets/img/szenen/{{ field.slug }}.webp {{ field.sceneWidth }}w" sizes="(max-width: 48rem) 92vw, 46vw" width="{{ field.sceneWidth }}" height="{{ field.sceneHeight }}" alt="{{ field.sceneAlt }}">
       </div>
     </div>
   </section>
 
-  <div class="container field-scene-wrap">
-    <img class="field-scene" src="/assets/img/szenen/{{ field.slug }}.webp" srcset="/assets/img/szenen/{{ field.slug }}-600.webp 600w, /assets/img/szenen/{{ field.slug }}.webp {{ field.sceneWidth }}w" sizes="(max-width: 48rem) 92vw, 640px" width="{{ field.sceneWidth }}" height="{{ field.sceneHeight }}" alt="{{ field.sceneAlt }}" loading="lazy">
+  <div class="container field-formats-wrap">
+    <div class="formats">
+      <h2 class="formats__label">Unsere Formate</h2>
+      <ol class="formats__list">
+        {%- for o in field.features %}
+        <li class="formats__item">
+          <span class="num" aria-hidden="true">{{ loop.index }}</span>
+          <div class="stack">
+            <h3>{{ o.title }}</h3>
+            <p>{{ o.text }}</p>
+          </div>
+        </li>
+        {%- endfor %}
+      </ol>
+    </div>
   </div>
 
   <section class="section section--white">

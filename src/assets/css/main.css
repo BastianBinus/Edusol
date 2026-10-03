@@ -1148,19 +1148,27 @@ a.chip-field:hover {
   object-position: left center;
 }
 
-/* Freigestellte Szene zwischen Hero und Inhalt: ragt in den getönten Hero hinein */
-.field-scene-wrap {
-  display: flex;
-  justify-content: center;
-  margin-top: clamp(-72px, -6vw, -36px);
+/* Freigestellte Szene im Hero neben dem Titel (wie die Eule auf «Wir sind EDUSOL») */
+.field-scene {
+  display: block;
+  justify-self: center;
+  width: min(100%, 560px);
+  height: auto;
+  filter: drop-shadow(0 16px 20px rgba(26, 58, 80, 0.16));
+}
+
+/* Formate-Karte zwischen Hero und Inhalt: ragt in den getönten Hero hinein */
+.field-formats-wrap {
+  margin-top: clamp(-64px, -5vw, -32px);
   position: relative;
 }
 
-.field-scene {
-  display: block;
-  width: min(100%, 640px);
-  height: auto;
-  filter: drop-shadow(0 16px 20px rgba(26, 58, 80, 0.16));
+@media (min-width: 60rem) {
+  .field-formats-wrap .formats__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
 }
 
 .field-hero__teaser {
@@ -2782,8 +2790,12 @@ textarea.input {
     padding-block: 8px 32px;
   }
 
-  .field-scene-wrap {
-    margin-top: -20px;
+  .field-formats-wrap {
+    margin-top: -16px;
+  }
+
+  .field-scene {
+    width: min(100%, 360px);
   }
 
   .breadcrumb li:not(.breadcrumb__back) {
