@@ -39,26 +39,26 @@
             {%- endif %}
           </div>
         </div>
-        <div class="formats">
-          <h2 class="formats__label">Unsere Formate</h2>
-          <ol class="formats__list">
-            {%- for o in field.features %}
-            <li class="formats__item">
-              <span class="num" aria-hidden="true">{{ loop.index }}</span>
-              <div class="stack">
-                <h3>{{ o.title }}</h3>
-                <p>{{ o.text }}</p>
-              </div>
-            </li>
-            {%- endfor %}
-          </ol>
-        </div>
+        <img class="field-scene" src="/assets/img/szenen/{{ field.slug }}.webp" srcset="/assets/img/szenen/{{ field.slug }}-600.webp 600w, /assets/img/szenen/{{ field.slug }}.webp {{ field.sceneWidth }}w" sizes="(max-width: 48rem) 92vw, 46vw" width="{{ field.sceneWidth }}" height="{{ field.sceneHeight }}" alt="{{ field.sceneAlt }}">
       </div>
     </div>
   </section>
 
-  <div class="container field-photo-wrap">
-    <img class="field-photo" src="/assets/img/bilder/{{ field.slug }}.webp" srcset="/assets/img/bilder/{{ field.slug }}-800.webp 800w, /assets/img/bilder/{{ field.slug }}.webp 1600w" sizes="(max-width: 72rem) 100vw, 72rem" width="1600" height="800" alt="{{ field.photoAlt }}" loading="lazy">
+  <div class="container field-formats-wrap">
+    <div class="formats">
+      <h2 class="formats__label">Unsere Formate</h2>
+      <ol class="formats__list">
+        {%- for o in field.features %}
+        <li class="formats__item">
+          <span class="num" aria-hidden="true">{{ loop.index }}</span>
+          <div class="stack">
+            <h3>{{ o.title }}</h3>
+            <p>{{ o.text }}</p>
+          </div>
+        </li>
+        {%- endfor %}
+      </ol>
+    </div>
   </div>
 
   <section class="section section--white">
@@ -83,6 +83,18 @@
         </ol>
       </div>
     </div>
+    {%- if field.practice %}
+    <div class="container">
+      <div class="practice">
+        <h2 class="h-sub">Beispiele aus unserer Praxis</h2>
+        <ul class="practice__list">
+          {%- for t in field.practice %}
+          <li>{{ t }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+    {%- endif %}
   </section>
 </div>
 
@@ -92,7 +104,7 @@
     <ul class="other-fields scroller">
       {%- for f in fields %}{% if f.slug != field.slug %}
       <li class="theme-{{ f.slug }}">
-        <a href="/{{ f.slug }}.html"><img src="/assets/img/eulen/{{ f.slug }}.svg" width="40" height="36" alt="" loading="lazy">{{ f.menuTitle }}</a>
+        <a href="/{{ f.slug }}.html"><img src="/assets/img/eulen/{{ f.slug }}.svg" width="40" height="36" alt="" loading="lazy"><span>{{ f.menuTitle if " " in f.menuTitle else f.cardTitle }}</span></a>
       </li>
       {%- endif %}{% endfor %}
     </ul>

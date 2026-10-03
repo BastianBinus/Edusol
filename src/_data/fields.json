@@ -28,7 +28,9 @@
     "seoTitle": "Coaching & Supervision für Schulen und Teams – EDUSOL",
     "tint": "#e3f0ea",
     "menuTitle": "Coaching & Supervision",
-    "photoAlt": "Zwei Spielfiguren sitzen bei einer Tasse Kaffee im Gespräch"
+    "sceneAlt": "Zwei Sessel aus Bausteinen, dazwischen ein grünes Tischchen mit zwei Kaffeetassen, auf einer Lehne sitzt die EDUSOL-Eule",
+    "sceneWidth": 1200,
+    "sceneHeight": 531
   },
   {
     "slug": "fachvortraege",
@@ -59,7 +61,16 @@
     "seoTitle": "Fachvorträge und Weiterbildung für Schulen – EDUSOL",
     "tint": "#efe8f3",
     "menuTitle": "Fachvorträge",
-    "photoAlt": "Zwei Spielfiguren halten einen Vortrag vor vielen Zuhörenden"
+    "sceneAlt": "Rednerpult auf einem violetten Podest, davor Stühle im Halbkreis mit Notizbüchern, am Pult steht die EDUSOL-Eule",
+    "sceneWidth": 1200,
+    "sceneHeight": 584,
+    "practice": [
+      "Fachvortrag zu Schulabsentismus an einer psychiatrischen Klinik",
+      "Workshop für Fachpersonen an einer Fachhochschule",
+      "Weiterbildungstage für mehrere Schulteams mit bis zu 80 Teilnehmenden",
+      "Schulinterne Weiterbildungen zu Teamentwicklung und Traumapädagogik",
+      "Elternvorträge zu Resilienz, starken Kindern und Mobbing"
+    ]
   },
   {
     "slug": "krisenmanagement",
@@ -90,7 +101,13 @@
     "seoTitle": "Krisenmanagement für Schulen und Organisationen – EDUSOL",
     "tint": "#e6eaf4",
     "menuTitle": "Krisenmanagement",
-    "photoAlt": "Zwei ruhige Spielfiguren begleiten zwei überforderte Figuren an einem Besprechungstisch"
+    "sceneAlt": "Ein schiefer Turm aus Bausteinen wird von einem blauen Balken sicher gestützt, am Fuss wächst ein grüner Spross, auf dem Sockel steht die EDUSOL-Eule",
+    "sceneWidth": 1114,
+    "sceneHeight": 957,
+    "practice": [
+      "Umgang mit Krisen in Schulen und Organisationen als Teil unserer täglichen Arbeit",
+      "Interdisziplinäres Team mit Erfahrung aus Schulleitung, Institutionsleitung und Sozialer Arbeit"
+    ]
   },
   {
     "slug": "npo",
@@ -121,7 +138,14 @@
     "seoTitle": "Organisationsentwicklung für NPO, Vereine und Institutionen – EDUSOL",
     "tint": "#f3ebe3",
     "menuTitle": "Organisationsentwicklung",
-    "photoAlt": "Drei Spielfiguren entwickeln gemeinsam eine Strategie an einem Besprechungstisch"
+    "sceneAlt": "Eine Mauer aus Bausteinen, links bröckelnd, rechts sauber gefügt, verbunden durch einen ockerfarbenen Schlussstein, oben die EDUSOL-Eule",
+    "sceneWidth": 1200,
+    "sceneHeight": 723,
+    "practice": [
+      "Mehrjährige Leitung der Fusion mehrerer sozialer Institutionen",
+      "Gestaltung und Begleitung von Veränderungsprozessen aus eigener Leitungsverantwortung",
+      "Weiterbildungen zur Teamentwicklung"
+    ]
   },
   {
     "slug": "schulentwicklung",
@@ -152,6 +176,13 @@
     "seoTitle": "Schulentwicklung: Leitbild, Unterricht, Führung – EDUSOL",
     "tint": "#f6e6e8",
     "menuTitle": "Schulentwicklung",
-    "photoAlt": "Zwei Spielfiguren besprechen vor einem Schulhaus einen Entwicklungsplan"
+    "sceneAlt": "Ein Weg aus Bausteinen führt zu einem Schulportal, ein roter Stein liegt für das nächste Wegstück bereit, am Rand die EDUSOL-Eule",
+    "sceneWidth": 1200,
+    "sceneHeight": 807,
+    "practice": [
+      "Begleitung von Schulteams in der Entwicklung einer gemeinsamen Schulhauskultur",
+      "Entwicklung einer gewaltfreien Schulhauskultur auf der Grundlage einer klaren, gemeinsam getragenen Haltung",
+      "Weiterbildungstage für mehrere Schulteams mit bis zu 80 Teilnehmenden"
+    ]
   }
 ]
