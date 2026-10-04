@@ -1157,15 +1157,6 @@ a.chip-field:hover {
   filter: drop-shadow(0 16px 20px rgba(26, 58, 80, 0.16));
 }
 
-.field-scene--photo {
-  width: min(100%, 580px);
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  border-radius: var(--radius-lg);
-  filter: none;
-  box-shadow: 0 18px 40px rgba(26, 58, 80, 0.18);
-}
-
 /* Formate-Karte zwischen Hero und Inhalt: ragt in den getönten Hero hinein */
 .field-formats-wrap {
   margin-top: clamp(-64px, -5vw, -32px);
@@ -2870,12 +2861,6 @@ textarea.input {
     width: min(66%, 260px);
     max-height: 220px;
     object-fit: contain;
-  }
-
-  .field-scene--photo {
-    width: 100%;
-    max-height: none;
-    object-fit: cover;
   }
 
   .breadcrumb li:not(.breadcrumb__back) {
