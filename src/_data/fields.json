@@ -30,7 +30,7 @@
     "menuTitle": "Coaching & Supervision",
     "sceneAlt": "Spielfigur von Thorsten im Gespräch mit einer Klientin in zwei Sesseln, auf dem Tisch Kaffeetassen und die EDUSOL-Eule",
     "sceneWidth": 1200,
-    "sceneHeight": 740
+    "sceneHeight": 739
   },
   {
     "slug": "fachvortraege",
@@ -63,7 +63,7 @@
     "menuTitle": "Fachvorträge",
     "sceneAlt": "Spielfiguren von Dominik und Patrick halten einen Vortrag vor Publikum, daneben die EDUSOL-Eule",
     "sceneWidth": 1200,
-    "sceneHeight": 871,
+    "sceneHeight": 862,
     "practice": [
       "Fachvortrag zu Schulabsentismus an einer psychiatrischen Klinik",
       "Workshop für Fachpersonen an einer Fachhochschule",
@@ -103,7 +103,7 @@
     "menuTitle": "Krisenmanagement",
     "sceneAlt": "Spielfiguren von Thorsten und Dominik bringen Ruhe in eine Besprechung mit zwei gestressten Personen, daneben die EDUSOL-Eule",
     "sceneWidth": 1200,
-    "sceneHeight": 784,
+    "sceneHeight": 782,
     "practice": [
       "Umgang mit Krisen in Schulen und Organisationen als Teil unserer täglichen Arbeit",
       "Interdisziplinäres Team mit Erfahrung aus Schulleitung, Institutionsleitung und Sozialer Arbeit"
@@ -140,7 +140,7 @@
     "menuTitle": "Organisationsentwicklung",
     "sceneAlt": "Spielfiguren von Thorsten, Susann und Dominik entwickeln am Tisch eine Strategie, vor einem Whiteboard mit Symbolen, daneben die EDUSOL-Eule",
     "sceneWidth": 1200,
-    "sceneHeight": 804,
+    "sceneHeight": 805,
     "practice": [
       "Mehrjährige Leitung der Fusion mehrerer sozialer Institutionen",
       "Gestaltung und Begleitung von Veränderungsprozessen aus eigener Leitungsverantwortung",
