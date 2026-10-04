@@ -19,11 +19,11 @@ permalink: /
         <div class="team-strip__avatars" aria-hidden="true">
           {%- for m in team %}<img class="avatar" src="/assets/img/team/klein/{{ m.slug }}.webp" width="80" height="80" alt="">{%- endfor %}
         </div>
-        <p class="team-strip__text">Vier Fachleute, die täglich in Schule, Institution und Krisenarbeit stehen.</p>
+        <p class="team-strip__text">Vier Fachleute aus Schule, Institution, Krisenarbeit und Finanzen.</p>
       </div>
     </div>
     <div class="hero-media">
-      <img class="hero-image" src="/assets/img/bilder/start-lego.webp" srcset="/assets/img/bilder/start-lego-720.webp 720w, /assets/img/bilder/start-lego.webp 1107w" sizes="(max-width: 48rem) 100vw, 50vw" width="1107" height="941" alt="Vier lächelnde Spielfiguren stehen als Team nebeneinander" fetchpriority="high">
+      <img class="hero-scene" src="/assets/img/szenen/start-treppe.webp" srcset="/assets/img/szenen/start-treppe-560.webp 560w, /assets/img/szenen/start-treppe.webp 1000w" sizes="(max-width: 48rem) 92vw, 46vw" width="1000" height="874" alt="Treppe aus Bausteinen mit fünf farbigen Stufen, oben schaut die EDUSOL-Eule durch ihr Fernglas" fetchpriority="high">
       <p class="hero-badge">
         <img src="/assets/img/eulen/logo.svg" width="44" height="40" alt="">
         <span><strong>Persönlich und unverbindlich</strong><span>Angebot auf Anfrage</span></span>
@@ -42,12 +42,24 @@ permalink: /
   </div>
 </section>
 
-<section class="section section--white home-news" aria-labelledby="news-title">
-  <div class="container home-news__inner">
+<section class="section section--white home-praxis" aria-labelledby="praxis-title">
+  <div class="container stack stack-xl">
     <div class="stack stack-sm">
-      <h2 class="h-small" id="news-title">Aktuelles aus unserer Arbeit</h2>
-      <p class="subtitle">Projekte, Impulse und Neuigkeiten teilen wir auf LinkedIn.</p>
+      <h2 class="h-section" id="praxis-title">Aus unserer Praxis</h2>
+      <p class="subtitle">Ein interdisziplinäres Team mit unterschiedlichen Erfahrungen und Perspektiven. Eine Auswahl aus unserer bisherigen Arbeit.</p>
     </div>
-    <a class="btn btn--outline" href="{{ site.linkedin }}" rel="noopener" target="_blank">EDUSOL auf LinkedIn<span class="visually-hidden"> (öffnet in neuem Tab)</span></a>
+    <ul class="praxis-grid">
+      {%- for p in praxis %}
+      <li class="theme-{{ p.field }}">
+        <div class="praxis-card">
+          <img src="/assets/img/eulen/{{ p.field }}.svg" width="40" height="36" alt="" loading="lazy">
+          <span class="praxis-card__field accent-text">{% for f in fields %}{% if f.slug == p.field %}{{ f.menuTitle }}{% endif %}{% endfor %}</span>
+          <h3 class="praxis-card__title">{{ p.title }}</h3>
+          <p class="praxis-card__text">{{ p.text }}</p>
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p class="home-praxis__more">Projekte, Impulse und Neuigkeiten teilen wir auf <a href="{{ site.linkedin }}" rel="noopener" target="_blank">LinkedIn<span class="visually-hidden"> (öffnet in neuem Tab)</span></a>.</p>
   </div>
 </section>
