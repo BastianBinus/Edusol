@@ -175,14 +175,7 @@
         }
         return;
       }
-      // Formspree: Lehnt der Dienst die AJAX-Übermittlung ab, klassisch absenden.
-      const external = new URL(form.action, location.href).origin !== location.origin;
-      if (external && response.status !== 422) {
-        HTMLFormElement.prototype.submit.call(form);
-        return;
-      }
-
-      // Eigene Funktion: Feldfehler vom Server direkt an den Feldern anzeigen.
+      // Feldfehler vom Server direkt an den Feldern anzeigen.
       const result = await response.json().catch(() => ({}));
       const fieldErrors = Object.entries(result.errors ?? {})
         .map(([name, message]) => [form.elements.namedItem(name), message])

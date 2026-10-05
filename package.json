@@ -13,13 +13,12 @@
     "check:links": "node scripts/check-links.mjs",
     "check:a11y": "node scripts/check-a11y.mjs",
     "check:placeholders": "node scripts/check-placeholders.mjs",
-    "test": "npm run check:api && npm run build && npm run check:html && npm run check:links && npm run check:headers && npm run check:a11y && npm run check:form && npm run check:ui && npm run check:form:vercel",
+    "test": "npm run check:api && npm run build && npm run check:html && npm run check:links && npm run check:headers && npm run check:a11y && npm run check:form && npm run check:ui",
     "check:form": "node scripts/check-form.mjs",
     "serve": "node scripts/serve.mjs",
     "check:headers": "node scripts/check-headers.mjs",
     "check:ui": "node scripts/check-ui.mjs",
-    "check:api": "node --test \"tests/**/*.test.js\"",
-    "check:form:vercel": "CONTACT_BACKEND=vercel eleventy --quiet && node scripts/check-form.mjs && npm run build --silent"
+    "check:api": "node --test \"tests/**/*.test.js\""
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",

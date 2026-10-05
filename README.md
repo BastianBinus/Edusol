@@ -70,12 +70,12 @@ wird nur beim Build auf Vercel eingebunden (cookielos, gleiche Domain, keine CSP
 Hinweis: Der Hobby-Plan ist nur für nicht-kommerzielle Nutzung erlaubt – für EDUSOL braucht es Pro.
 Die Datenschutzerklärung nennt beim Build auf Vercel automatisch Vercel als Hoster.
 
-### Kontaktformular (eigene Funktion statt Formspree)
+### Kontaktformular
 
 `api/contact.js` (Vercel Function, Region Frankfurt) prüft die Anfrage serverseitig und sendet sie per SMTP
 direkt ins Postfach – ohne Formularanbieter, ohne CAPTCHA. Logik: `lib/contact.js`, Tests: `tests/`.
 
-> **Status: noch nicht aktiv.** Bis zur Umstellung läuft das Formular über Formspree.
+> Formspree ist entfernt; das Formular läuft nur noch über diese Funktion.
 > Die Mails von edusol.ch liegen bei **Hostpoint**. **Entscheid des Teams:** Versand über das bestehende
 > Postfach `info@edusol.ch` (kein separates Formular-Postfach). Offen:
 >
@@ -83,7 +83,8 @@ direkt ins Postfach – ohne Formularanbieter, ohne CAPTCHA. Logik: `lib/contact
 > - [ ] Zwei-Faktor-Anmeldung bei Vercel und GitHub für alle Personen mit Zugang einschalten.
 > - [ ] Hostpoint Control Panel → *Domains → Bearbeiten → E-Mail-Sicherheit konfigurieren*: DKIM aktiv,
 >       DMARC gesetzt, genau ein SPF-Eintrag.
-> - [ ] Variablen unten in Vercel eintragen, neu deployen, Formular testen, Formspree kündigen.
+> - [ ] Variablen unten in Vercel eintragen, neu deployen, Formular testen.
+> - [ ] Formspree-Konto kündigen; `CONTACT_BACKEND` in Vercel löschen (wird nicht mehr gelesen).
 >
 > Bewusst in Kauf genommenes Risiko: Das Passwort von info@ liegt in Vercel. Wer Vercel- oder
 > Repo-Zugriff erlangt, kann das ganze Hauptpostfach lesen und darin senden. Deshalb das Passwort
@@ -101,7 +102,6 @@ Werte für Hostpoint:
 | `SMTP_PASS` | Passwort von info@ (in Vercel als *Sensitive* markieren) |
 | `MAIL_FROM` | `EDUSOL Website <info@edusol.ch>` |
 | `MAIL_TO` | `info@edusol.ch` |
-| `CONTACT_BACKEND` | `vercel` |
 
 Variablen nur für *Production* setzen – sonst verschicken Preview-Deployments echte Mails.
 
@@ -110,10 +110,10 @@ Aktivieren in Vercel → *Settings → Environment Variables* (Vorlage: `.env.ex
 1. SMTP-Zugang vom E-Mail-Anbieter eintragen: `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`
    (am besten ein eigenes Konto/App-Passwort nur für die Website).
 2. `MAIL_TO` (Empfänger) und `MAIL_FROM` (Absender, muss zum SMTP-Konto passen) setzen.
-3. `CONTACT_BACKEND=vercel` setzen und neu deployen. Ohne diese Variable bleibt Formspree aktiv.
+3. Neu deployen – geänderte Variablen gelten erst für neue Deployments.
 4. Empfohlen: in Vercel unter *Firewall → Rules* ein Rate-Limit für `/api/contact`
    (z. B. 5 Anfragen pro Minute und IP).
-5. Test: Formular auf der Live-Seite absenden; danach Formspree-Konto kündigen.
+5. Test: Formular auf der Deployment-URL absenden (`edusol.ch` ist bis zur Freigabe gesperrt).
 
 Schutzmassnahmen: nur `POST`, nur von der eigenen Domain (Origin-Check), Grössenlimit 20 KB, Honeypot,
 Längen- und Formatprüfung, keine Zeilenumbrüche in Mail-Headern, Absender immer die eigene Adresse
@@ -131,7 +131,6 @@ Veröffentlicht wird ausschliesslich über Vercel.
 
 - [ ] Platzhalter in `src/_data/site.js` ersetzen (`npm run check:placeholders -- --strict`)
 - [ ] Datenschutzerklärung und Impressum rechtlich prüfen lassen
-- [ ] Auftragsbearbeitungsvertrag (DPA) mit Formspree abschliessen
-- [ ] Kontaktformular auf eigene Funktion umstellen (siehe *Kontaktformular*: Versand über `info@edusol.ch` bei Hostpoint)
+- [ ] Kontaktformular einrichten (siehe *Kontaktformular*: Versand über `info@edusol.ch` bei Hostpoint)
 - [ ] `securityTxtExpires` jährlich erneuern (Kalendereintrag!)
 - [ ] «Bald online»-Sperre aufheben: `SITE_PUBLIC=true` in Vercel setzen, neu deployen, `edusol.ch` prüfen

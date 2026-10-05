@@ -37,7 +37,7 @@ bodyClass: has-bottom-bar
         <div class="wizard-progress__bar" aria-hidden="true"><span data-wizard-bar></span></div>
       </div>
 
-      <form class="form" id="contact-form" action="{{ '/api/contact' if site.contactBackend == 'vercel' else site.formspreeAction }}" method="POST" data-fallback-email="{{ site.email }}">
+      <form class="form" id="contact-form" action="/api/contact" method="POST" data-fallback-email="{{ site.email }}">
         <input type="hidden" name="_subject" value="Neue Anfrage über edusol.ch">
         <div class="hp-field" aria-hidden="true">
           <label for="website">Dieses Feld bitte leer lassen</label>
@@ -109,11 +109,7 @@ bodyClass: has-bottom-bar
         </div>
 
         <p class="form-privacy">
-          {%- if site.contactBackend == "vercel" %}
           Eure Angaben werden direkt an unser Postfach übermittelt und nur zur Bearbeitung eurer Anfrage verwendet.
-          {%- else %}
-          Eure Angaben werden über den Formulardienst Formspree (USA) an uns übermittelt und nur zur Bearbeitung eurer Anfrage verwendet.
-          {%- endif %}
           Details in der <a href="/datenschutz.html#kontaktformular">Datenschutzerklärung</a>.
         </p>
 
