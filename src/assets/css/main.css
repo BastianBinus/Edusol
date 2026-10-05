@@ -868,7 +868,8 @@ html:not(.js) .akut-tab {
 /* Seiten-Hero mit Bild daneben (z. B. freigestellte Eule auf «Wir sind EDUSOL») */
 .page-hero-split {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 44rem) auto;
+  justify-content: start;
   align-items: center;
   gap: clamp(24px, 5vw, 64px);
 }
@@ -876,6 +877,7 @@ html:not(.js) .akut-tab {
 .hero-owl {
   width: clamp(160px, 22vw, 300px);
   height: auto;
+  transform: scaleX(-1); /* gespiegelt: Eule schaut zur Überschrift */
   filter: drop-shadow(0 14px 18px rgba(43, 47, 51, 0.18));
 }
 
